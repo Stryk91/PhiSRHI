@@ -22,22 +22,22 @@
       "T64ANSIBLE_ADV"
     ],
     "onboarding": {
-      "quick_start": "Initialize Crossplane Universal Control Plane, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "helm install crossplane --namespace crossplane --create-namespace crossplane-stable/crossplane && kubectl apply -f composite-resource-definition.yaml",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T62CROSSPLANE_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Crossplane Universal Control Plane",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Provider installation: 'kubectl apply -f provider-aws.yaml' for AWS provider",
+        "Composition definition: 'apiVersion: apiextensions.crossplane.io/v1 kind: Composition' with resources",
+        "Composite resource: 'apiVersion: database.example.org/v1alpha1 kind: PostgreSQLInstance'",
+        "Resource claim: 'apiVersion: database.example.org/v1alpha1 kind: PostgreSQLClaim'",
+        "Claim template: 'apiVersion: apiextensions.crossplane.io/v1 kind: Composition' with claimTemplates",
+        "Managed resources: 'kubectl get managed -n crossplane-system' to verify created resources"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Provider not ready: 'kubectl get provider.pkg' and check 'READY' status and conditions",
+        "Composition failed: 'kubectl get composite -n crossplane-system' and check events for creation errors",
+        "Claim stuck: 'kubectl describe claim <claim-name>' and verify composition and resource template configuration",
+        "Permission denied: 'kubectl auth can-i create managedresources --as=system:serviceaccount:crossplane-system:crossplane'",
+        "Resource reconciliation: 'kubectl get managed -o wide' and check external resource status"
       ]
     },
     "resources": {
@@ -50,7 +50,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466617Z",
+      "last_updated": "2025-11-21T22:12:33.836852Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

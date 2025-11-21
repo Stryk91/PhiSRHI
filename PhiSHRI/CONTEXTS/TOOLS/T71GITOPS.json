@@ -21,22 +21,22 @@
       "T74IMAGE_AUTOMATION"
     ],
     "onboarding": {
-      "quick_start": "Initialize GitOps Principles and Patterns, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "git clone git@github.com:org/infrastructure.git && cd infrastructure && kubectl apply -f k8s/ && git commit -am 'Updated deployment version' && git push origin main",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T71GITOPS_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of GitOps Principles and Patterns",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Declarative configs: All resources defined in YAML with apiVersion, kind, and metadata",
+        "Version control: '.gitignore' for secrets, track all manifests in git repository",
+        "Pull request workflow: 'git checkout -b feature-branch && git commit && git push origin feature-branch' for changes",
+        "Automated sync: ArgoCD or Flux controller watching git repository and applying changes to cluster",
+        "Environment promotion: 'git checkout -b production && git merge main && git push origin production' for promotion",
+        "Rollback: 'git revert <commit-hash>' and controllers automatically revert infrastructure state"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Sync failed: 'kubectl get events --sort-by=.metadata.creationTimestamp' and check for webhook admission errors",
+        "Drift detected: 'git diff HEAD && kubectl diff -f k8s/' to identify manual changes vs git state",
+        "Merge conflicts: 'git pull --rebase origin main' to resolve conflicts before pushing changes",
+        "Secrets in git: 'git filter-branch --force --index-filter' to remove committed secrets and implement encryption",
+        "RBAC issues: 'kubectl auth can-i create deployments' and verify service account permissions for automated sync"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.467310Z",
+      "last_updated": "2025-11-21T22:11:53.872343Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

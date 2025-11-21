@@ -22,22 +22,22 @@
       "T49TRAEFIK"
     ],
     "onboarding": {
-      "quick_start": "Initialize Envoy Proxy, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "docker run -d --name envoy -p 8080:8080 -p 9901:9901 envoyproxy/envoy:v1.28-latest -c /etc/envoy/envoy.yaml",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T47ENVOY_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Envoy Proxy",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Static config: static_resources with listeners and clusters defined in envoy.yaml",
+        "Load balancing: cluster config with round_robin or least_request lb_policy",
+        "CORS filtering: http_filters with type cors and origin_configs",
+        "Rate limiting: rate_limit_service config and HTTP rate limit filter",
+        "Health checking: health_checks config with timeout and interval settings",
+        "Admin interface: admin config with access_log_path and address 0.0.0.0:9901"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "503 no healthy upstream: 'curl localhost:9901/clusters' and verify upstream endpoints are reachable",
+        "Config validation failed: 'envoy -c envoy.yaml --mode validate' to check YAML syntax and references",
+        "High CPU usage: 'curl localhost:9901/stats' and check listener.filter_chain_match_errors",
+        "TLS handshake failure: 'openssl s_client -connect localhost:443' and verify TLS context configuration",
+        "Filter not working: 'curl localhost:9901/config_dump' and check filter chain order and configuration"
       ]
     },
     "resources": {
@@ -50,7 +50,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.465521Z",
+      "last_updated": "2025-11-21T22:11:53.871534Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

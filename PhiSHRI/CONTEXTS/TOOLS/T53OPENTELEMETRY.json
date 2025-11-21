@@ -21,22 +21,22 @@
       "T54DATADOG"
     ],
     "onboarding": {
-      "quick_start": "Initialize OpenTelemetry Observability Framework, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "helm install opentelemetry-collector open-telemetry/opentelemetry-collector --namespace observability --set mode=deployment && kubectl apply -f instrumentation.yaml",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T53OPENTELEMETRY_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of OpenTelemetry Observability Framework",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Collector deployment: 'helm install opentelemetry-collector --set mode=deployment'",
+        "Receivers configuration: 'otlp:' with 'endpoint: 0.0.0.0:4317' for gRPC and 'endpoint: 0.0.0.0:4318' for HTTP",
+        "Processors: 'batch:' with 'timeout: 1s send_batch_size: 1024' for efficient data processing",
+        "Exporters: 'otlphttp:' with 'endpoint: http://jaeger:14268/api/traces' for trace export",
+        "Auto-instrumentation: Java: '-javaagent:opentelemetry-javaagent.jar', Node.js: 'require(&quot;@opentelemetry/auto-instrumentations-node&quot;)()'",
+        "Service mapping: 'resource:' with 'attributes: [service.name: my-service, service.version: 1.0.0]'"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Collector not receiving: 'netstat -tlnp | grep 4317' and verify receiver configuration and endpoints",
+        "Memory high: 'kubectl top pods -n observability' and adjust batch processor configuration",
+        "Data loss: 'curl http://otel-collector:8888/metrics' and check export failures and retry policies",
+        "Agent installation failed: Verify OpenTelemetry SDK version compatibility and auto-instrumentation paths",
+        "Schema conflicts: 'otelcol_config validate' to check receiver/exporter configuration syntax"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.465934Z",
+      "last_updated": "2025-11-21T22:12:33.835988Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

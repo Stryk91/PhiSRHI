@@ -22,22 +22,22 @@
       "T49TRAEFIK"
     ],
     "onboarding": {
-      "quick_start": "Initialize Linkerd Service Mesh, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "linkerd install | kubectl apply -f - && kubectl annotate namespace default linkerd.io/inject=enabled && linkerd check",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T46LINKERD_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Linkerd Service Mesh",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Installation: linkerd install | kubectl apply -f - for CLI-based installation",
+        "Namespace injection: kubectl annotate namespace <namespace> linkerd.io/inject=enabled",
+        "Mesh policy: kubectl apply -f -f server-policy.yaml with spec.meshTLS.mode=strict",
+        "Service profiling: linkerd viz profile -n emojivoto web --port service",
+        "Traffic split: TrafficSplit resource with spec.backends and spec.weights",
+        "Health check: linkerd check --pre to verify cluster readiness before installation"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Pods not meshed: 'kubectl get pods -n default -o yaml | grep linkerd' and verify namespace annotation",
+        "mTLS handshake failure: 'linkerd viz edges -n emojivoto' and check service profile configuration",
+        "Certificate expired: 'kubectl get secrets -n linkerd | grep identity-issuer' and restart linkerd-controller",
+        "High memory usage: 'linkerd viz tap deploy/web --to deploy/voting' to analyze traffic and adjust proxy resources",
+        "Installation fails: 'linkerd install --ignore-cluster' and fix RBAC or network policy issues"
       ]
     },
     "resources": {
@@ -50,7 +50,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.465452Z",
+      "last_updated": "2025-11-21T22:11:53.871251Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

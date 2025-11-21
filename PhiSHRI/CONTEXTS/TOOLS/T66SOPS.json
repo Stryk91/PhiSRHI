@@ -21,22 +21,22 @@
       "T69KMS"
     ],
     "onboarding": {
-      "quick_start": "Initialize SOPS Secrets Management, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "echo 'secret_data: value' > secret.yaml && sops --encrypt --kms 'arn:aws:kms:us-east-1:123456789:key/abcd1234' secret.yaml > secret.encrypted.yaml",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T66SOPS_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of SOPS Secrets Management",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "File encryption: 'sops --encrypt --kms <key-arn> file.yaml > file.encrypted.yaml'",
+        "File decryption: 'sops --decrypt file.encrypted.yaml > file.yaml'",
+        "Git integration: 'git-crypt init && git-crypt add-gpg-user <email>' for repository-wide encryption",
+        "Key configuration: .sops.yaml with creation_rules for different key types (KMS, GCP, GPG)",
+        "Editor integration: 'export EDITOR=vim && sops file.yaml' for seamless edit/encrypt workflow",
+        "CI/CD usage: 'sops --decrypt --encrypted-regex '^(data|stringData)$' secrets.yaml > secrets.decrypted.yaml'"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "KMS permission denied: 'aws kms describe-key --key-id <key-arn>' and verify IAM permissions for kms:Encrypt/Decrypt",
+        "Invalid MAC: 'sops --updatekeys -y file.yaml' when encryption keys have changed",
+        "Git diff noise: 'git diff --ignore-cr-at-eof' and configure .gitattributes for encrypted files",
+        "Decryption failed: 'sops --extract <path> file.yaml' to verify specific field encryption",
+        "GPG key not found: 'gpg --list-secret-keys' and import required GPG keys with 'gpg --import private.key'"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466950Z",
+      "last_updated": "2025-11-21T22:11:53.872199Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

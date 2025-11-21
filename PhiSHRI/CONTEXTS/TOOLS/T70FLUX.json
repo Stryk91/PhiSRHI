@@ -22,22 +22,22 @@
       "T74IMAGE_AUTOMATION"
     ],
     "onboarding": {
-      "quick_start": "Initialize Flux CD GitOps Toolkit, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "flux install --namespace=flux-system --components=source-controller,kustomize-controller,helm-controller,notification-controller && flux bootstrap git --url=ssh://git@github.com/user/repo --branch=main",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T70FLUX_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Flux CD GitOps Toolkit",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Bootstrap: 'flux bootstrap git --url=ssh://git@github.com/user/repo --path=clusters/production'",
+        "Kustomization: 'flux create kustomization apps --source=GitRepository/flux-system --path=./clusters/production/apps --prune=true'",
+        "Helm release: 'flux create hr redis --source=HelmRepository/flux-system --chart=redis --chart-version=14.7.0'",
+        "Image update: 'flux create image update podinfo --image=podinfo --tag-semver=~6.0 --export'",
+        "Reconciliation: 'flux reconcile kustomization apps --with-source' and 'flux get sources all'",
+        "Alerting: 'flux create alert provider slack --type=slack --address=https://hooks.slack.com/... --channel=alerts'"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "GitRepository not ready: 'flux get sources git' and 'flux reconcile source git flux-system' to retry connection",
+        "Kustomization stuck: 'flux get kustomizations' and check 'conditions' field for specific failure reasons",
+        "Helm release failed: 'flux get helmreleases' and 'helm get values <release> -n <namespace>' to debug chart values",
+        "Authentication error: 'ssh-keyscan github.com >> ~/.ssh/known_hosts' and verify deploy key has write access",
+        "Image automation not working: 'flux get image updates' and verify image repository credentials are configured"
       ]
     },
     "resources": {
@@ -50,7 +50,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.467242Z",
+      "last_updated": "2025-11-21T22:11:40.486626Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

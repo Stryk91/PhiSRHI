@@ -21,22 +21,22 @@
       "T79PLATFORM_TEAMS"
     ],
     "onboarding": {
-      "quick_start": "Initialize Internal Developer Platform Design, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "docker run --name backstage -p 7000:7000 backstage backstage start --config app-config.local.yaml",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T78IDP_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Internal Developer Platform Design",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Platform catalog: 'apiVersion: backstage.io/v1alpha1 kind: Component' for service registration",
+        "Software templates: 'scaffolder.local' with 'apiVersion: scaffolder.backstage.io/v1beta3 kind: Template'",
+        "Developer portal: 'organization: domain: example.com name: Acme Corp' for organization configuration",
+        "Tech docs: 'mkdocs.yml' in repositories with 'backstage.io/techdocs-ref' annotations",
+        "CI/CD integration: 'backstage.io/techdocs-ref: type: url target: https://github.com/org/repo/tree/main/docs'",
+        "Plugin architecture: 'packages/app/src/plugins.ts' for plugin registration and configuration"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "404 on catalog: 'curl http://localhost:7000/api/catalog/entities' and verify location configuration",
+        "Template not rendering: 'yarn backstage-cli repo build' and check template schema validation",
+        "Tech docs failing: 'mkdocs build' to verify docs configuration before backstage ingestion",
+        "Plugin not loading: 'yarn install' and restart development server after plugin installation",
+        "Database connection: 'POSTGRES_CONNECTION_STRING=postgresql://user:pass@localhost:5432/backstage' for persistent storage"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.467781Z",
+      "last_updated": "2025-11-21T22:12:33.838254Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

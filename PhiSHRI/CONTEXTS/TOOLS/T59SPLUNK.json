@@ -21,22 +21,22 @@
       "T58VECTOR"
     ],
     "onboarding": {
-      "quick_start": "Initialize Splunk Data-to-Everything Platform, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "helm install splunk-universal-forwarder splunk/splunk-connect-for-kubernetes --namespace splunk --set splunkHost=splunk.example.com --set splunkPort=8089",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T59SPLUNK_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Splunk Data-to-Everything Platform",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Universal forwarder: 'splunk add forward-server splunk.example.com:9997' for log forwarding",
+        "Data inputs: 'splunk add monitor /var/log/app.log -index myapp' for log collection",
+        "Search queries: 'index=apache sourcetype=access_combined status=500' for error analysis",
+        "Dashboard creation: 'Add dashboard' with visualization panels and saved searches",
+        "Alert rules: 'Create alert' with 'Trigger condition: count > 100' and email notifications",
+        "KV store: '| outputlookup my_lookup.csv' and '| inputlookup my_lookup.csv' for data storage"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Forwarder not connecting: 'netstat -an | grep 9997' and check firewall rules and certificates",
+        "Indexing error: '| _index_earliest=-1m _index_latest=now' to troubleshoot real-time indexing",
+        "Search slow: '| dbinspect index=_internal summary=t' and optimize time ranges and queries",
+        "License violation: 'curl -k https://localhost:8089/services/licenser/pools' and check daily usage",
+        "Dashboard not loading: 'splunk clean eventdata' and restart splunkweb service"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466368Z",
+      "last_updated": "2025-11-21T22:12:33.836718Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

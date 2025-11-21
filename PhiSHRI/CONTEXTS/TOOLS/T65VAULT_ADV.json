@@ -21,22 +21,22 @@
       "T69KMS"
     ],
     "onboarding": {
-      "quick_start": "Initialize HashiCorp Vault Advanced, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "vault operator init -key-shares=5 -key-threshold=3 && vault operator unseal <unseal_key1> && vault login <root_token>",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T65VAULT_ADV_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of HashiCorp Vault Advanced",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "HA cluster: 'vault operator raft join https://vault-2:8200' for multi-node setup",
+        "Auto-unseal: 'vault write sys/audit/file/file_1 path=/var/log/vault_audit.log' for audit logging",
+        "Secrets engine: 'vault secrets enable -path=pki pki' and 'vault write pki/root/generate/internal common_name=example.com'",
+        "Policy management: 'vault policy write admin admin.hcl' with path 'sys/*' capabilities",
+        "Kubernetes auth: 'vault auth enable kubernetes' and 'vault write auth/kubernetes/config kubernetes_host=https://kubernetes.default.svc:443'",
+        "Transit encryption: 'vault write transit/keys/my-key type=rsa-2048' and 'vault write transit/encrypt/my-key plaintext=$(base64 <<< 'secret data')'"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Sealed after restart: 'vault operator unseal' with threshold keys and consider auto-unseal configuration",
+        "Auth method denied: 'vault read auth/kubernetes/role/my-role' and verify service account token and bound_service_account_names",
+        "Certificate expired: 'vault pki issue' with proper TTL and 'vault pki tidy' to clean up expired certificates",
+        "Storage backend error: 'vault operator migrate -config=vault.hcl' when migrating storage backends",
+        "Permission denied: 'vault token capabilities <token> <path>' to debug policy issues and 'vault policy read <policy_name>'"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466881Z",
+      "last_updated": "2025-11-21T22:11:40.486463Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

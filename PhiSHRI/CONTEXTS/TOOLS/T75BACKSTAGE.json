@@ -21,22 +21,22 @@
       "T79PLATFORM_TEAMS"
     ],
     "onboarding": {
-      "quick_start": "Initialize Backstage Developer Platform, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "npx @backstage/create-app@latest --path=backstage-app && cd backstage-app && yarn dev",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T75BACKSTAGE_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Backstage Developer Platform",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "App creation: 'npx @backstage/create-app@latest' to scaffold new Backstage application",
+        "Plugin development: 'yarn new plugin frontend my-plugin' to generate plugin scaffolding",
+        "Entity registration: 'location: type: url, target: https://github.com/org/repo/blob/main/catalog-info.yaml'",
+        "Software catalog: 'apiVersion: backstage.io/v1alpha1 kind: Component metadata: name: my-service spec: type: service lifecycle: experimental owner: team-a'",
+        "Authentication: 'app.config.oauth2.github' with clientId and clientSecret configuration",
+        "Tech docs: 'mkdocs.yml' in repository root and 'backstage.io/techdocs-ref' annotation in catalog entity"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Plugin not loading: 'yarn build' and restart dev server, check plugin entry in packages/app/src/plugins.ts",
+        "404 on catalog entities: 'curl -k https://backstage/api/catalog/entities/by-name/component/default/my-service' to verify entity registration",
+        "Auth callback error: Verify GitHub OAuth app settings and ensure callback URL matches 'https://backstage/api/auth/github/handler/frame'",
+        "Database connection failed: 'yarn start-backend --config app-config.local.yaml' and check POSTGRES_CONNECTION_STRING",
+        "Tech docs build failed: 'yarn backstage-cli repo build' and verify mkdocs.yml syntax and required plugins"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.467583Z",
+      "last_updated": "2025-11-21T22:11:40.486770Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

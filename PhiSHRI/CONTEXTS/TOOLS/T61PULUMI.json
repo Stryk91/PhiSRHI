@@ -21,22 +21,22 @@
       "T64ANSIBLE_ADV"
     ],
     "onboarding": {
-      "quick_start": "Initialize Pulumi Infrastructure as Code, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "pulumi new aws-typescript && pulumi config set aws:region us-west-2 && pulumi up",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T61PULUMI_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Pulumi Infrastructure as Code",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Project creation: 'pulumi new <template>' to scaffold new project with language and cloud",
+        "Stack configuration: 'pulumi config set aws:region us-west-2 --secret' for sensitive values",
+        "Resource definition: 'const bucket = new aws.s3.Bucket('my-bucket', { acl: 'private' })' in TypeScript",
+        "Stack outputs: 'export const bucketName = bucket.id' and 'pulumi stack output bucketName'",
+        "Component resources: 'export class MyComponent extends pulumi.ComponentResource' for reusable infrastructure",
+        "Automation API: 'pulumi.up({ stack, program })' for programmatic deployment"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Configuration not found: 'pulumi config --show-secrets' and verify stack is selected with 'pulumi stack select'",
+        "AWS credentials invalid: 'aws sts get-caller-identity' and verify AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY",
+        "Resource creation failed: 'pulumi up --diff' and check resource dependencies and permissions",
+        "TypeError in code: 'pulumi preview' to validate code before deployment and check type definitions",
+        "State corruption: 'pulumi stack history' and 'pulumi stack --force' to recover from state issues"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466511Z",
+      "last_updated": "2025-11-21T22:11:53.872050Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

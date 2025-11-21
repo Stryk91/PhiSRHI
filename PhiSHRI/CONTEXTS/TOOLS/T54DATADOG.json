@@ -21,22 +21,22 @@
       "T53OPENTELEMETRY"
     ],
     "onboarding": {
-      "quick_start": "Initialize Datadog Observability Platform, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "helm repo add datadog https://helm.datadoghq.com && helm install datadog-agent datadog/datadog --namespace datadog --set datadog.apiKey=<api-key>",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T54DATADOG_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Datadog Observability Platform",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Agent deployment: 'helm install datadog-agent --set datadog.apiKey=<key> --set datadog.site=datadoghq.com'",
+        "APM tracing: Set 'apm.enabled=true' and instrument applications with Datadog tracing libraries",
+        "Log collection: 'logs.enabled=true' and 'logs.collect_all_logs=true' for comprehensive logging",
+        "Custom metrics: 'HistogramMetricFamily' in DogStatsD with 'service.check.response_time:1|h|@0.5'",
+        "Process monitoring: 'processAgent.enabled=true' and 'processAgent.processCollection.enabled=true'",
+        "Integrations: 'confd:<config_name>.yaml' for specific technology integrations (Redis, Postgres, etc.)"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "API key invalid: 'curl -H 'DD-API-KEY: <key>' https://api.datadoghq.com/api/v1/validate' and verify key permissions",
+        "High memory usage: 'kubectl top pods -n datadog' and adjust 'datadog.resources.requests.memory'",
+        "No APM traces: 'curl http://localhost:8126/v0.7/pipelines' and verify application instrumentation",
+        "Logs not collected: 'kubectl logs -n datadog datadog-agent' and check log collection configuration",
+        "Dashboard empty: 'ddog dashboard list' and verify metric names and tags match dashboard queries"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466013Z",
+      "last_updated": "2025-11-21T22:12:33.836124Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

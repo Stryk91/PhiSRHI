@@ -21,22 +21,22 @@
       "T73PROGRESSIVE_DELIVERY"
     ],
     "onboarding": {
-      "quick_start": "Initialize Container Image Automation, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "flux create image update my-app --image=my-app --tag-semver=~1.0 --git-branch=main && flux reconcile image update my-app",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T74IMAGE_AUTOMATION_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Container Image Automation",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Image update controller: 'flux create image update --image=my-image --git-branch=main --interval=5m'",
+        "Tag filtering: '--tag-semver=~1.0' or '--tag-regex=^1\\.\\d+\\.\\d+$' for version matching",
+        "Commit strategy: '--commit-message='Image update&quot; and --author='fluxcdbot <users@example.com>'",
+        "Push automation: '--git-push=secret' and configure git credentials for automated commits",
+        "Scan intervals: '--interval=5m' for frequent scanning or '--interval=1h' for resource efficiency",
+        "Multiple repositories: 'flux create image repository --image=registry.com/repo/image' for custom registries"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Scan failed: 'flux get image repositories' and check repository connectivity and authentication",
+        "Commit rejected: 'git push --dry-run' and verify branch protection rules and permissions",
+        "No new versions: 'flux get image update' and verify registry access and tag filtering rules",
+        "Authentication error: 'kubectl create secret docker-registry regcred --docker-server=registry.com' for registry access",
+        "Merge conflicts: 'flux reconcile image update --force' to overwrite conflicting changes"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.467514Z",
+      "last_updated": "2025-11-21T22:12:33.837995Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

@@ -22,22 +22,22 @@
       "T54DATADOG"
     ],
     "onboarding": {
-      "quick_start": "Initialize Grafana Visualization Platform, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "helm install grafana grafana/grafana --namespace monitoring --set adminPassword='admin123' && kubectl get secret grafana -n monitoring -o jsonpath='{.data.admin-password}' | base64 --decode",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T51GRAFANA_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Grafana Visualization Platform",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Installation: helm install grafana grafana/grafana -n monitoring with persistence enabled",
+        "Datasource configuration: grafana-cli plugins install grafana-prometheus-datasource",
+        "Dashboard import: 'curl -X POST http://admin:admin@localhost:3000/api/dashboards/db -H 'Content-Type: application/json' -d @dashboard.json'",
+        "Panel queries: 'rate(container_cpu_usage_seconds_total[5m])' for CPU metrics",
+        "Alerting: Alert rule with 'FOR: 5m' and notification channels",
+        "Users and teams: grafana-cli admin user create --email user@example.com --password password123"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Datasource not working: 'curl http://grafana:3000/api/datasources' and verify PROMETHEUS_URL and authentication",
+        "Dashboard not loading: 'curl -X GET http://grafana:3000/api/dashboards/uid/<uid>' and check JSON schema",
+        "Permission denied: 'grafana-cli admin user permissions' and verify organization role assignments",
+        "Plugin installation failed: 'grafana-cli plugins install-data-source' and check plugin compatibility",
+        "High memory usage: 'kubectl exec -n monitoring grafana-0 -- lsof' and reduce dashboard refresh intervals"
       ]
     },
     "resources": {
@@ -50,7 +50,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.465799Z",
+      "last_updated": "2025-11-21T22:11:53.871741Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

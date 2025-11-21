@@ -20,22 +20,22 @@
       "T78IDP"
     ],
     "onboarding": {
-      "quick_start": "Initialize Platform Engineering Teams, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "kubectl create namespace platform-engineering && kubectl apply -f platform-policies.yaml && kubectl create serviceaccount platform-team",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T79PLATFORM_TEAMS_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Platform Engineering Teams",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Team structure: Platform team with Site Reliability Engineers, Developer Experience engineers, and Product Managers",
+        "Golden paths: 'kubectl apply -f templates/service-template.yaml' for standardized application patterns",
+        "Self-service: 'kubectl create -f catalog/service.yaml' for internal service catalog registration",
+        "Governance: OPA policies with 'package platform.enforcement' andrego rules",
+        "Observability: 'kubectl apply -f monitoring/platform-metrics.yaml' for platform-wide monitoring",
+        "Documentation: 'mkdocs serve' for platform documentation and runbooks"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Permission denied: 'kubectl auth can-i create namespaces --as=system:serviceaccount:platform:platform-team' and fix RBAC",
+        "Template adoption low: 'kubectl get applications --all-namespaces' and survey developers on template usability",
+        "Policy conflicts: 'opa test platform/policies/*' and resolve contradictory policy rules",
+        "Resource quotas exceeded: 'kubectl describe namespace <namespace>' and adjust resource quota limits",
+        "SLA not met: 'kubectl top nodes' and implement autoscaling policies for platform components"
       ]
     },
     "resources": {
@@ -48,7 +48,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.467850Z",
+      "last_updated": "2025-11-21T22:11:53.872627Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

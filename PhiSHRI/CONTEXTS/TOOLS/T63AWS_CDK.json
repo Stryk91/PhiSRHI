@@ -21,22 +21,22 @@
       "T64ANSIBLE_ADV"
     ],
     "onboarding": {
-      "quick_start": "Initialize AWS Cloud Development Kit, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "cdk init app --language typescript && npm install @aws-cdk/aws-s3 && cdk deploy",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T63AWS_CDK_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of AWS Cloud Development Kit",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "App initialization: 'cdk init app --language <language>' to scaffold new CDK project",
+        "Stack definition: 'export class MyStack extends cdk.Stack { constructor(scope, id, props) { super(scope, id, props)'",
+        "Construct usage: 'new s3.Bucket(this, 'MyBucket', { versioned: true, encryption: s3.BucketEncryption.S3_MANAGED })'",
+        "Dependencies: 'npm install @aws-cdk/aws-<service>' or 'pip install aws-cdk.<service>' for service constructs",
+        "Synthesis: 'cdk synth' to generate CloudFormation template from CDK code",
+        "Diff deployment: 'cdk diff' to preview changes before deployment"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Bootstrap required: 'cdk bootstrap aws://ACCOUNT/REGION' for initial CDK deployment setup",
+        "Synthesis failed: 'npm run build' to compile TypeScript before cdk synth",
+        "Permission denied: 'aws sts get-caller-identity' and verify IAM credentials and permissions",
+        "Stack creation failed: 'aws cloudformation describe-stack-events --stack-name MyStack' for error details",
+        "Asset upload error: 'cdk deploy --asset-ecr-repository-name <repo>' to fix container asset storage"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.466743Z",
+      "last_updated": "2025-11-21T22:12:33.836987Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,

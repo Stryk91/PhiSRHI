@@ -21,22 +21,22 @@
       "T49TRAEFIK"
     ],
     "onboarding": {
-      "quick_start": "Initialize Consul Connect Service Mesh, configure basic setup, and follow best practices for deployment and management",
+      "quick_start": "consul agent -dev -client=0.0.0.0 -ui && consul services register -name web -port 8080 && consul intention create -source web -destination db",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T48CONSUL_MESH_GUIDE.md",
       "common_patterns": [
-        "Setup: Initial configuration and deployment of Consul Connect Service Mesh",
-        "Integration: Connect with existing tools and workflows",
-        "Monitoring: Implement observability and alerting",
-        "Security: Apply security best practices and access controls",
-        "Scaling: Design for growth and high availability",
-        "Automation: Automate routine tasks and operations"
+        "Service registration: 'consul services register -name web -address 192.168.1.100 -port 8080'",
+        "Health checks: 'consul services register -name web -check http://192.168.1.100:8080/health -interval 10s'",
+        "Service discovery: 'consul catalog services' and 'dig web.service.consul @127.0.0.1 -p 8600'",
+        "Service mesh: 'consul connect inject -enable web' and 'consul intention create -source web -destination db'",
+        "K/V store: 'consul kv put config/database &quot;host=postgres port=5432&quot;' and 'consul kv get config/database'",
+        "Security: 'consul acl policy create -name web-policy -rules @web-policy.hcl' and token management"
       ],
       "known_errors": [
-        "Configuration errors: Validate settings and dependencies",
-        "Network issues: Check connectivity and firewall rules",
-        "Permission problems: Verify access rights and authentication",
-        "Resource constraints: Monitor CPU, memory, and storage",
-        "Version conflicts: Ensure compatibility between components"
+        "Service not healthy: 'consul health checks' and verify HTTP endpoint accessibility and timeouts",
+        "DNS resolution failed: 'systemctl-resolve --status' and configure resolvers in /etc/resolv.conf with 'nameserver 127.0.0.1'",
+        "TLS handshake error: 'consul tls cert create -server' and verify certificate chain and CA configuration",
+        "Leadership election failed: 'consul operator raft list-peers' and check network connectivity between agents",
+        "ACL permission denied: 'consul acl token read <token-id>' and verify token policies and service identities"
       ]
     },
     "resources": {
@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T21:40:55.465590Z",
+      "last_updated": "2025-11-21T22:12:33.835361Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
