@@ -1,0 +1,81 @@
+{
+  "door_code": "T66SOPS",
+  "semantic_path": "TOOLS.SECRETS.SOPS",
+  "aliases": [
+    "sops",
+    "mozilla sops",
+    "encrypted files",
+    "git secrets",
+    "sops encrypt",
+    "sops decrypt"
+  ],
+  "context_bundle": {
+    "summary": "SOPS is an editor of encrypted files that supports YAML, JSON, TOML, and binary formats with various encryption methods",
+    "prerequisites": [
+      "S05SECRETS"
+    ],
+    "related_doors": [
+      "T65VAULT_ADV",
+      "T67SEALED_SECRETS",
+      "T68EXTERNAL_SECRETS",
+      "T69KMS"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize SOPS Secrets Management, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T66SOPS_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of SOPS Secrets Management",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T66SOPS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SECRETS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466950Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "sops",
+        "mozilla sops",
+        "encrypted files",
+        "git secrets",
+        "sops encrypt"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SECRETS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

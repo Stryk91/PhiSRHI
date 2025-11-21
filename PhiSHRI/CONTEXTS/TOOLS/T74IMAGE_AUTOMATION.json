@@ -1,0 +1,81 @@
+{
+  "door_code": "T74IMAGE_AUTOMATION",
+  "semantic_path": "TOOLS.GITOPS.IMAGE_AUTOMATION",
+  "aliases": [
+    "image automation",
+    "image update automation",
+    "gitops image",
+    "container image update",
+    "flux image"
+  ],
+  "context_bundle": {
+    "summary": "Image automation automatically updates container image tags in Git repositories based on new registry versions",
+    "prerequisites": [
+      "T25DOCKER",
+      "T71GITOPS"
+    ],
+    "related_doors": [
+      "T70FLUX",
+      "T71GITOPS",
+      "T72DRIFT_DETECTION",
+      "T73PROGRESSIVE_DELIVERY"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Container Image Automation, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T74IMAGE_AUTOMATION_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Container Image Automation",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T74IMAGE_AUTOMATION_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.467514Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "image automation",
+        "image update automation",
+        "gitops image",
+        "container image update",
+        "flux image"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

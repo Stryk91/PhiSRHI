@@ -1,0 +1,81 @@
+{
+  "door_code": "T64ANSIBLE_ADV",
+  "semantic_path": "TOOLS.IAC.ANSIBLE_ADV",
+  "aliases": [
+    "ansible advanced",
+    "ansible roles",
+    "ansible galaxy",
+    "ansible vault",
+    "ansible tower",
+    "ansible automation"
+  ],
+  "context_bundle": {
+    "summary": "Ansible Advanced covers roles, playbooks, modules, Ansible Tower, and enterprise-grade automation for configuration management",
+    "prerequisites": [
+      "T15ANSIBLE"
+    ],
+    "related_doors": [
+      "T60TERRAFORM",
+      "T61PULUMI",
+      "T62CROSSPLANE",
+      "T63AWS_CDK"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Ansible Advanced Configuration, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T64ANSIBLE_ADV_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Ansible Advanced Configuration",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T64ANSIBLE_ADV_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/IAC_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466813Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "ansible advanced",
+        "ansible roles",
+        "ansible galaxy",
+        "ansible vault",
+        "ansible tower"
+      ],
+      "category": "TOOLS",
+      "subcategory": "IAC",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

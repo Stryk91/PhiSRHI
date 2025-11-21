@@ -1,0 +1,81 @@
+{
+  "door_code": "T54DATADOG",
+  "semantic_path": "TOOLS.OBSERVABILITY.DATADOG",
+  "aliases": [
+    "datadog",
+    "datadog apm",
+    "datadog logs",
+    "datadog metrics",
+    "datadog agent",
+    "datadog monitor"
+  ],
+  "context_bundle": {
+    "summary": "Datadog is a unified observability platform providing monitoring, security, and analytics for cloud-scale applications",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T50PROMETHEUS",
+      "T51GRAFANA",
+      "T52JAEGER",
+      "T53OPENTELEMETRY"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Datadog Observability Platform, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T54DATADOG_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Datadog Observability Platform",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T54DATADOG_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/OBSERVABILITY_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466013Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "datadog",
+        "datadog apm",
+        "datadog logs",
+        "datadog metrics",
+        "datadog agent"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

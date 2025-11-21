@@ -1,0 +1,81 @@
+{
+  "door_code": "T71GITOPS",
+  "semantic_path": "TOOLS.GITOPS.GITOPS",
+  "aliases": [
+    "gitops",
+    "git ops",
+    "gitops principles",
+    "gitops workflow",
+    "gitops best practices"
+  ],
+  "context_bundle": {
+    "summary": "GitOps is a modern framework for continuous delivery that uses Git as the single source of truth for declarative infrastructure and applications",
+    "prerequisites": [
+      "T33ARGOCD",
+      "T70FLUX"
+    ],
+    "related_doors": [
+      "T70FLUX",
+      "T72DRIFT_DETECTION",
+      "T73PROGRESSIVE_DELIVERY",
+      "T74IMAGE_AUTOMATION"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize GitOps Principles and Patterns, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T71GITOPS_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of GitOps Principles and Patterns",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T71GITOPS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.467310Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "gitops",
+        "git ops",
+        "gitops principles",
+        "gitops workflow",
+        "gitops best practices"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

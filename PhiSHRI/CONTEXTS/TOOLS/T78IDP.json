@@ -1,0 +1,81 @@
+{
+  "door_code": "T78IDP",
+  "semantic_path": "TOOLS.PLATFORM.IDP",
+  "aliases": [
+    "idp",
+    "internal developer platform",
+    "platform engineering",
+    "paved road",
+    "developer experience"
+  ],
+  "context_bundle": {
+    "summary": "Internal Developer Platform design covers the architecture and principles for building platforms that enhance developer productivity",
+    "prerequisites": [
+      "T75BACKSTAGE",
+      "T76PORT"
+    ],
+    "related_doors": [
+      "T75BACKSTAGE",
+      "T76PORT",
+      "T77KRATIX",
+      "T79PLATFORM_TEAMS"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Internal Developer Platform Design, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T78IDP_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Internal Developer Platform Design",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T78IDP_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/PLATFORM_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.467781Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "idp",
+        "internal developer platform",
+        "platform engineering",
+        "paved road",
+        "developer experience"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PLATFORM",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

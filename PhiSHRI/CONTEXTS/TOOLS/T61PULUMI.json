@@ -1,0 +1,81 @@
+{
+  "door_code": "T61PULUMI",
+  "semantic_path": "TOOLS.IAC.PULUMI",
+  "aliases": [
+    "pulumi",
+    "pulumi stack",
+    "pulumi program",
+    "infrastructure as code",
+    "pulumi aws",
+    "pulumi kubernetes"
+  ],
+  "context_bundle": {
+    "summary": "Pulumi is an infrastructure as code tool that uses general-purpose programming languages to define and manage cloud infrastructure",
+    "prerequisites": [
+      "T14TERRAFORM"
+    ],
+    "related_doors": [
+      "T60TERRAFORM",
+      "T62CROSSPLANE",
+      "T63AWS_CDK",
+      "T64ANSIBLE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Pulumi Infrastructure as Code, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T61PULUMI_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Pulumi Infrastructure as Code",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T61PULUMI_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/IAC_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466511Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "pulumi",
+        "pulumi stack",
+        "pulumi program",
+        "infrastructure as code",
+        "pulumi aws"
+      ],
+      "category": "TOOLS",
+      "subcategory": "IAC",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

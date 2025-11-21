@@ -1,0 +1,81 @@
+{
+  "door_code": "T58VECTOR",
+  "semantic_path": "TOOLS.LOGGING.VECTOR",
+  "aliases": [
+    "vector",
+    "vector sink",
+    "vector source",
+    "vector transform",
+    "data pipeline",
+    "observability pipeline"
+  ],
+  "context_bundle": {
+    "summary": "Vector is a high-performance, end-to-end observability data pipeline for collecting, transforming, and routing logs, metrics, and traces",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T55ELK_STACK",
+      "T56LOKI",
+      "T57FLUENTD",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Vector Data Pipeline, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T58VECTOR_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Vector Data Pipeline",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T58VECTOR_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466300Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "vector",
+        "vector sink",
+        "vector source",
+        "vector transform",
+        "data pipeline"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

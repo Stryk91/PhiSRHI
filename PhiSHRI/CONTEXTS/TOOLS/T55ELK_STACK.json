@@ -1,0 +1,82 @@
+{
+  "door_code": "T55ELK_STACK",
+  "semantic_path": "TOOLS.LOGGING.ELK_STACK",
+  "aliases": [
+    "elk stack",
+    "elasticsearch",
+    "logstash",
+    "kibana",
+    "elasticsearch logging",
+    "logstash pipeline",
+    "kibana dashboard"
+  ],
+  "context_bundle": {
+    "summary": "ELK Stack is a comprehensive log management solution combining Elasticsearch for storage, Logstash for processing, and Kibana for visualization",
+    "prerequisites": [
+      "T20ELASTICSEARCH"
+    ],
+    "related_doors": [
+      "T56LOKI",
+      "T57FLUENTD",
+      "T58VECTOR",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize ELK Stack (Elasticsearch, Logstash, Kibana), configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T55ELK_STACK_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of ELK Stack (Elasticsearch, Logstash, Kibana)",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T55ELK_STACK_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466086Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "elk stack",
+        "elasticsearch",
+        "logstash",
+        "kibana",
+        "elasticsearch logging"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

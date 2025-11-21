@@ -1,0 +1,81 @@
+{
+  "door_code": "T76PORT",
+  "semantic_path": "TOOLS.PLATFORM.PORT",
+  "aliases": [
+    "port",
+    "port io",
+    "developer platform",
+    "internal developer portal",
+    "software catalog",
+    "port scorecards"
+  ],
+  "context_bundle": {
+    "summary": "Port is an Internal Developer Platform that enables developers to self-serve infrastructure through a standardized developer portal",
+    "prerequisites": [
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T75BACKSTAGE",
+      "T77KRATIX",
+      "T78IDP",
+      "T79PLATFORM_TEAMS"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Port Internal Developer Platform, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T76PORT_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Port Internal Developer Platform",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T76PORT_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/PLATFORM_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.467651Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "port",
+        "port io",
+        "developer platform",
+        "internal developer portal",
+        "software catalog"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PLATFORM",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "door_code": "T56LOKI",
+  "semantic_path": "TOOLS.LOGGING.LOKI",
+  "aliases": [
+    "loki",
+    "grafana loki",
+    "loki log aggregation",
+    "promtail",
+    "loki query",
+    "loki labels"
+  ],
+  "context_bundle": {
+    "summary": "Loki is a horizontally-scalable, highly-available log aggregation system inspired by Prometheus and designed for Kubernetes",
+    "prerequisites": [
+      "T10OBSERVABILITY",
+      "T51GRAFANA"
+    ],
+    "related_doors": [
+      "T55ELK_STACK",
+      "T57FLUENTD",
+      "T58VECTOR",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Grafana Loki Log Aggregation, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T56LOKI_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Grafana Loki Log Aggregation",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T56LOKI_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.466163Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "loki",
+        "grafana loki",
+        "loki log aggregation",
+        "promtail",
+        "loki query"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

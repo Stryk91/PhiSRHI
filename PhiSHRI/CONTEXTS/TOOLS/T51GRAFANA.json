@@ -1,0 +1,82 @@
+{
+  "door_code": "T51GRAFANA",
+  "semantic_path": "TOOLS.OBSERVABILITY.GRAFANA",
+  "aliases": [
+    "grafana",
+    "grafana dashboard",
+    "grafana panels",
+    "grafana alerts",
+    "grafana datasource",
+    "grafana tempo"
+  ],
+  "context_bundle": {
+    "summary": "Grafana is an open-source visualization platform for monitoring, observability, and analytics with support for multiple data sources",
+    "prerequisites": [
+      "T10OBSERVABILITY",
+      "T50PROMETHEUS"
+    ],
+    "related_doors": [
+      "T50PROMETHEUS",
+      "T52JAEGER",
+      "T53OPENTELEMETRY",
+      "T54DATADOG"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Grafana Visualization Platform, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T51GRAFANA_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Grafana Visualization Platform",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T51GRAFANA_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/OBSERVABILITY_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.465799Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "grafana",
+        "grafana dashboard",
+        "grafana panels",
+        "grafana alerts",
+        "grafana datasource"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

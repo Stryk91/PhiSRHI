@@ -1,0 +1,82 @@
+{
+  "door_code": "T32GITHUB_ACTIONS",
+  "semantic_path": "TOOLS.CICD.GITHUB_ACTIONS",
+  "aliases": [
+    "github actions",
+    "github workflows",
+    "github-runners",
+    "github ci",
+    "github cd",
+    "github actions workflow",
+    "github marketplace"
+  ],
+  "context_bundle": {
+    "summary": "GitHub Actions enables workflow automation directly in GitHub with YAML-based workflows, self-hosted runners, and extensive marketplace actions",
+    "prerequisites": [
+      "T11CICD"
+    ],
+    "related_doors": [
+      "T30JENKINS",
+      "T31GITLAB_CI",
+      "T33ARGOCD",
+      "T34CIRCLECI"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize GitHub Actions CI/CD, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/CICD/T32GITHUB_ACTIONS_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of GitHub Actions CI/CD",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/CICD/T32GITHUB_ACTIONS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/CICD_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.464309Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "github actions",
+        "github workflows",
+        "github-runners",
+        "github ci",
+        "github cd"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}
