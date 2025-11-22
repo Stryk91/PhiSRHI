@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhiSHRI Installer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <pre class="ascii-logo">
+  ____  _     _ ____  _   _ ____  ___
+ |  _ \| |__ (_) ___|| | | |  _ \|_ _|
+ | |_) | '_ \| \___ \| |_| | |_) || |
+ |  __/| | | | |___) |  _  |  _ < | |
+ |_|   |_| |_|_|____/|_| |_|_| \_\___|
+                </pre>
+            </div>
+            <p class="tagline">MCP Server Installer</p>
+            <p class="version">v1.1.0</p>
+        </header>
+
+        <!-- Status Panel -->
+        <div id="status-panel" class="status-panel">
+            <div class="status-indicator" id="status-indicator">
+                <span class="status-dot" id="status-dot"></span>
+                <span class="status-text" id="status-text">Checking installation...</span>
+            </div>
+            <div class="status-details" id="status-details"></div>
+        </div>
+
+        <!-- Method Selection -->
+        <div id="method-section" class="method-section">
+            <h2>Installation Method</h2>
+            <div class="method-grid">
+                <button class="method-card selected" data-method="Auto">
+                    <div class="method-icon">A</div>
+                    <div class="method-name">Auto</div>
+                    <div class="method-desc">Auto-detect Claude Desktop config</div>
+                </button>
+                <button class="method-card" data-method="Mcpb">
+                    <div class="method-icon">M</div>
+                    <div class="method-name">mcpb</div>
+                    <div class="method-desc">Use MCP Builder tool</div>
+                </button>
+                <button class="method-card" data-method="Dxt">
+                    <div class="method-icon">D</div>
+                    <div class="method-name">DXT</div>
+                    <div class="method-desc">Desktop extension package</div>
+                </button>
+                <button class="method-card" data-method="Manual">
+                    <div class="method-icon">M</div>
+                    <div class="method-name">Manual</div>
+                    <div class="method-desc">Download files, configure yourself</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div id="progress-section" class="progress-section hidden">
+            <h2>Installation Progress</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <span class="progress-text" id="progress-text">0%</span>
+            </div>
+            <div class="progress-step" id="progress-step">Waiting to start...</div>
+            <div class="log-container" id="log-container"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions">
+            <button id="install-btn" class="btn btn-primary">
+                <span class="btn-icon">+</span>
+                Install PhiSHRI
+            </button>
+            <button id="uninstall-btn" class="btn btn-secondary">
+                <span class="btn-icon">-</span>
+                Uninstall
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="https://github.com/Stryk91/PhiSHRI" target="_blank">GitHub</a>
+            <span class="separator">|</span>
+            <a href="https://stryk91.github.io/PhiSHRI/" target="_blank">Documentation</a>
+        </footer>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
