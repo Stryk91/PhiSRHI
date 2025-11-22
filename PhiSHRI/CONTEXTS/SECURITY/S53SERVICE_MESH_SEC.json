@@ -1,0 +1,57 @@
+{
+  "door_code": "S53SERVICE_MESH_SEC",
+  "semantic_path": "security/servicemesh/mtls",
+  "title": "Service Mesh Security",
+  "aliases": [
+    "service mesh security",
+    "mtls",
+    "istio security",
+    "linkerd security"
+  ],
+  "summary": "Service mesh security including automatic mTLS, authorization policies, and certificate management. Covers zero-trust networking in microservices.",
+  "context_bundle": {
+    "concepts": [
+      "mTLS",
+      "SPIFFE/SPIRE",
+      "authorization policies",
+      "peer authentication",
+      "certificate rotation",
+      "workload identity"
+    ],
+    "patterns": [
+      "strict mTLS",
+      "allow-nothing default",
+      "service-to-service authz",
+      "egress control",
+      "certificate auto-rotation"
+    ],
+    "examples": {
+      "istio_mtls": "PeerAuthentication strict",
+      "authz_policy": "AuthorizationPolicy",
+      "spiffe_id": "workload identity"
+    },
+    "tools": [
+      "istio",
+      "linkerd",
+      "consul-connect",
+      "spire"
+    ],
+    "antipatterns": [
+      "permissive mTLS",
+      "no authorization policies",
+      "long-lived certificates",
+      "bypass for convenience",
+      "no egress control"
+    ]
+  },
+  "prerequisites": [
+    "T38ISTIO"
+  ],
+  "related_doors": [
+    "T38ISTIO",
+    "T39LINKERD",
+    "S49NETWORK_POLICY"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

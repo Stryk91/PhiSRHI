@@ -1,0 +1,61 @@
+{
+  "door_code": "W182APITEST",
+  "semantic_path": "workflows/api/testing",
+  "title": "API Testing Strategies",
+  "aliases": [
+    "api testing",
+    "contract testing",
+    "api validation",
+    "endpoint testing"
+  ],
+  "summary": "Comprehensive API testing including unit tests, integration tests, contract testing, and load testing. Covers mocking strategies and CI integration.",
+  "context_bundle": {
+    "concepts": [
+      "unit testing",
+      "integration testing",
+      "contract testing",
+      "load testing",
+      "mock servers",
+      "test fixtures",
+      "API mocking"
+    ],
+    "patterns": [
+      "consumer-driven contracts",
+      "provider verification",
+      "golden file testing",
+      "snapshot testing",
+      "chaos testing APIs"
+    ],
+    "examples": {
+      "pact_contract": "consumer-provider contract",
+      "pytest_api": "integration test suite",
+      "k6_load": "load test script"
+    },
+    "tools": [
+      "pact",
+      "dredd",
+      "postman-newman",
+      "k6",
+      "locust",
+      "wiremock"
+    ],
+    "antipatterns": [
+      "no contract tests",
+      "flaky integration tests",
+      "production data in tests",
+      "no load testing",
+      "manual-only testing"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI",
+    "W75UNITTEST"
+  ],
+  "related_doors": [
+    "W79CONTRACT",
+    "W75UNITTEST",
+    "W88LOADTEST"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

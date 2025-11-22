@@ -1,0 +1,59 @@
+{
+  "door_code": "S49NETWORK_POLICY",
+  "semantic_path": "security/kubernetes/network",
+  "title": "Kubernetes Network Policies",
+  "aliases": [
+    "network policy",
+    "k8s network security",
+    "pod networking",
+    "network segmentation"
+  ],
+  "summary": "Kubernetes network policy design for micro-segmentation. Covers ingress/egress rules, namespace isolation, and CNI plugin requirements.",
+  "context_bundle": {
+    "concepts": [
+      "ingress rules",
+      "egress rules",
+      "namespace selectors",
+      "pod selectors",
+      "CIDR blocks",
+      "port policies",
+      "deny all default"
+    ],
+    "patterns": [
+      "default deny",
+      "explicit allow",
+      "namespace isolation",
+      "database tier protection",
+      "egress whitelisting"
+    ],
+    "examples": {
+      "deny_all": "empty ingress/egress",
+      "allow_namespace": "namespaceSelector",
+      "allow_port": "specific port rules"
+    },
+    "tools": [
+      "calico",
+      "cilium",
+      "weave",
+      "antrea",
+      "network-policy-viewer"
+    ],
+    "antipatterns": [
+      "no network policies",
+      "allow all default",
+      "overly broad selectors",
+      "no egress control",
+      "ignoring DNS egress"
+    ]
+  },
+  "prerequisites": [
+    "S47K8S_SECURITY"
+  ],
+  "related_doors": [
+    "S47K8S_SECURITY",
+    "T38ISTIO",
+    "T39LINKERD"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

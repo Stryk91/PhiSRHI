@@ -1,0 +1,59 @@
+{
+  "door_code": "W184ASYNCAPI",
+  "semantic_path": "workflows/api/async",
+  "title": "Async API Patterns",
+  "aliases": [
+    "async api",
+    "event-driven api",
+    "asyncapi",
+    "message-driven"
+  ],
+  "summary": "Asynchronous API design using AsyncAPI specification. Covers event-driven patterns, message broker integration, and documentation standards.",
+  "context_bundle": {
+    "concepts": [
+      "AsyncAPI spec",
+      "events",
+      "commands",
+      "message brokers",
+      "channels",
+      "bindings",
+      "correlation"
+    ],
+    "patterns": [
+      "publish/subscribe",
+      "request/reply async",
+      "event notification",
+      "event-carried state transfer",
+      "saga coordination"
+    ],
+    "examples": {
+      "asyncapi_spec": "channels and messages",
+      "kafka_binding": "broker-specific config",
+      "websocket_api": "real-time events"
+    },
+    "tools": [
+      "asyncapi-generator",
+      "kafka",
+      "rabbitmq",
+      "nats",
+      "websockets"
+    ],
+    "antipatterns": [
+      "no message schema",
+      "missing correlation IDs",
+      "no dead letter handling",
+      "sync mindset in async",
+      "undocumented events"
+    ]
+  },
+  "prerequisites": [
+    "W115MESSAGING"
+  ],
+  "related_doors": [
+    "W115MESSAGING",
+    "T20KAFKA",
+    "W139EVENT_SOURCING"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

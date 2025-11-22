@@ -1,0 +1,61 @@
+{
+  "door_code": "W178APIAUTH",
+  "semantic_path": "workflows/api/authentication",
+  "title": "API Authentication Patterns",
+  "aliases": [
+    "api auth",
+    "api keys",
+    "oauth api",
+    "bearer tokens"
+  ],
+  "summary": "API authentication strategies including API keys, OAuth 2.0 flows, JWT validation, and service-to-service authentication patterns.",
+  "context_bundle": {
+    "concepts": [
+      "API keys",
+      "bearer tokens",
+      "OAuth 2.0",
+      "JWT",
+      "MTLS",
+      "service accounts",
+      "token refresh"
+    ],
+    "patterns": [
+      "API key rotation",
+      "short-lived tokens",
+      "token introspection",
+      "client credentials flow",
+      "PKCE",
+      "scopes"
+    ],
+    "examples": {
+      "api_key_header": "X-API-Key",
+      "oauth_flow": "authorization code + PKCE",
+      "jwt_validation": "signature + claims"
+    },
+    "tools": [
+      "auth0",
+      "keycloak",
+      "okta",
+      "firebase-auth"
+    ],
+    "antipatterns": [
+      "API keys in URLs",
+      "long-lived tokens",
+      "no key rotation",
+      "storing tokens insecurely",
+      "no scope validation"
+    ]
+  },
+  "prerequisites": [
+    "S07OAUTH",
+    "S08JWT"
+  ],
+  "related_doors": [
+    "S07OAUTH",
+    "S08JWT",
+    "W171RESTAPI",
+    "S27AUTH_FAILURES"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

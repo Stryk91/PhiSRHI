@@ -1,0 +1,57 @@
+{
+  "door_code": "E18RESOURCE_EXHAUSTION",
+  "semantic_path": "errors/resource/exhaustion",
+  "title": "Resource Exhaustion Handling",
+  "aliases": [
+    "resource exhaustion",
+    "resource limits",
+    "exhaustion",
+    "resource starvation"
+  ],
+  "summary": "Handling resource exhaustion including file descriptors, connections, memory, and disk. Covers detection, prevention, and recovery strategies.",
+  "context_bundle": {
+    "concepts": [
+      "file descriptor limits",
+      "connection pools",
+      "memory limits",
+      "disk space",
+      "thread exhaustion",
+      "socket exhaustion"
+    ],
+    "patterns": [
+      "resource pooling",
+      "connection limits",
+      "circuit breaker on exhaustion",
+      "graceful degradation",
+      "resource monitoring"
+    ],
+    "examples": {
+      "fd_exhaustion": "ulimit and lsof",
+      "connection_pool": "bounded pool size",
+      "memory_pressure": "GC tuning"
+    },
+    "tools": [
+      "lsof",
+      "netstat",
+      "top/htop",
+      "prometheus-node-exporter"
+    ],
+    "antipatterns": [
+      "unbounded connections",
+      "no resource limits",
+      "leak detection disabled",
+      "ignoring warnings",
+      "no monitoring"
+    ]
+  },
+  "prerequisites": [
+    "E10MEMORY"
+  ],
+  "related_doors": [
+    "E10MEMORY",
+    "W136BULKHEAD",
+    "W97POOLING"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,57 @@
+{
+  "door_code": "E15CASCADING",
+  "semantic_path": "errors/distributed/cascading",
+  "title": "Cascading Failure Prevention",
+  "aliases": [
+    "cascading failure",
+    "failure cascade",
+    "domino effect",
+    "failure propagation"
+  ],
+  "summary": "Preventing cascading failures in distributed systems. Covers circuit breakers, bulkheads, and graceful degradation to contain failure blast radius.",
+  "context_bundle": {
+    "concepts": [
+      "blast radius",
+      "failure isolation",
+      "graceful degradation",
+      "circuit breaker states",
+      "bulkhead partitioning",
+      "load shedding"
+    ],
+    "patterns": [
+      "circuit breaker",
+      "bulkhead isolation",
+      "timeout budgets",
+      "retry storms prevention",
+      "fallback responses"
+    ],
+    "examples": {
+      "circuit_breaker": "hystrix/resilience4j",
+      "bulkhead": "thread pool isolation",
+      "fallback": "cached/default response"
+    },
+    "tools": [
+      "resilience4j",
+      "sentinel",
+      "polly",
+      "istio-circuit-breaker"
+    ],
+    "antipatterns": [
+      "unbounded retries",
+      "no timeouts",
+      "shared thread pools",
+      "no fallbacks",
+      "ignoring downstream health"
+    ]
+  },
+  "prerequisites": [
+    "W135CIRCUIT_BREAKER"
+  ],
+  "related_doors": [
+    "W135CIRCUIT_BREAKER",
+    "W136BULKHEAD",
+    "E05NETWORK"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

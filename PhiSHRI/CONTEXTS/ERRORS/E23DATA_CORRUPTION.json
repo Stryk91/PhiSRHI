@@ -1,0 +1,57 @@
+{
+  "door_code": "E23DATA_CORRUPTION",
+  "semantic_path": "errors/data/corruption",
+  "title": "Data Corruption Detection & Recovery",
+  "aliases": [
+    "data corruption",
+    "data integrity",
+    "corruption recovery",
+    "checksum"
+  ],
+  "summary": "Detecting and recovering from data corruption including checksums, validation, and backup restoration strategies.",
+  "context_bundle": {
+    "concepts": [
+      "checksums",
+      "data integrity",
+      "bit rot",
+      "corruption detection",
+      "backup validation",
+      "point-in-time recovery"
+    ],
+    "patterns": [
+      "checksum verification",
+      "write verification",
+      "periodic scrubbing",
+      "immutable backups",
+      "incremental validation"
+    ],
+    "examples": {
+      "checksum": "SHA256 on write/read",
+      "scrubbing": "periodic full scan",
+      "pitr": "point-in-time restore"
+    },
+    "tools": [
+      "zfs",
+      "btrfs",
+      "pg_checksums",
+      "veritas"
+    ],
+    "antipatterns": [
+      "no checksums",
+      "no backup validation",
+      "single copy",
+      "no scrubbing",
+      "ignoring checksum errors"
+    ]
+  },
+  "prerequisites": [
+    "E04DATABASE"
+  ],
+  "related_doors": [
+    "E04DATABASE",
+    "W155DR",
+    "T17BACKUP"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

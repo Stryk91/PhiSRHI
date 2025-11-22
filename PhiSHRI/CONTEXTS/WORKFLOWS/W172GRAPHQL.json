@@ -1,0 +1,58 @@
+{
+  "door_code": "W172GRAPHQL",
+  "semantic_path": "workflows/api/graphql",
+  "title": "GraphQL API Patterns",
+  "aliases": [
+    "graphql",
+    "graph api",
+    "query language api"
+  ],
+  "summary": "GraphQL API design including schema design, resolver patterns, N+1 prevention, and subscription handling. Covers federation for microservices.",
+  "context_bundle": {
+    "concepts": [
+      "schema-first",
+      "resolvers",
+      "dataloaders",
+      "subscriptions",
+      "federation",
+      "persisted queries",
+      "schema stitching"
+    ],
+    "patterns": [
+      "dataloader batching",
+      "cursor pagination",
+      "relay connections",
+      "input validation",
+      "error handling",
+      "query complexity limits"
+    ],
+    "examples": {
+      "apollo_server": "Node.js GraphQL",
+      "strawberry_python": "Python GraphQL",
+      "federation_gateway": "microservices composition"
+    },
+    "tools": [
+      "apollo",
+      "graphql-yoga",
+      "strawberry",
+      "graphene",
+      "hasura",
+      "postgraphile"
+    ],
+    "antipatterns": [
+      "N+1 queries",
+      "unbounded queries",
+      "no query depth limits",
+      "over-fetching in resolvers",
+      "no schema documentation"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "W171RESTAPI",
+    "W173GRPC",
+    "L42GRAPHQL"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,56 @@
+{
+  "door_code": "W177APIERROR",
+  "semantic_path": "workflows/api/errors",
+  "title": "API Error Handling Standards",
+  "aliases": [
+    "api errors",
+    "error responses",
+    "problem details",
+    "api error codes"
+  ],
+  "summary": "Standardized API error handling including RFC 7807 Problem Details, error code taxonomies, and client-friendly error messages with actionable guidance.",
+  "context_bundle": {
+    "concepts": [
+      "RFC 7807",
+      "error codes",
+      "error messages",
+      "error details",
+      "validation errors",
+      "rate limit errors",
+      "retry-after"
+    ],
+    "patterns": [
+      "problem+json format",
+      "error code registry",
+      "field-level validation errors",
+      "error documentation",
+      "correlation IDs in errors"
+    ],
+    "examples": {
+      "rfc7807_response": "type, title, status, detail",
+      "validation_error": "field errors array",
+      "rate_limit_error": "retry-after header"
+    },
+    "tools": [
+      "problem-details libraries",
+      "error tracking (Sentry)"
+    ],
+    "antipatterns": [
+      "generic 500 errors",
+      "exposing stack traces",
+      "inconsistent error formats",
+      "no error codes",
+      "cryptic error messages"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "W171RESTAPI",
+    "E01PWSH",
+    "W113LOGGING"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

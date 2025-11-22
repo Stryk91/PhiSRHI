@@ -1,0 +1,57 @@
+{
+  "door_code": "W175APIVERSION",
+  "semantic_path": "workflows/api/versioning",
+  "title": "API Versioning Strategies",
+  "aliases": [
+    "api versioning",
+    "breaking changes",
+    "api evolution",
+    "backward compatibility"
+  ],
+  "summary": "API versioning approaches including URL path, header, and content negotiation strategies. Covers deprecation workflows and migration patterns.",
+  "context_bundle": {
+    "concepts": [
+      "semantic versioning",
+      "breaking changes",
+      "deprecation",
+      "sunset headers",
+      "feature flags",
+      "API lifecycle"
+    ],
+    "patterns": [
+      "URL versioning (/v1/)",
+      "header versioning",
+      "content negotiation",
+      "expand/contract",
+      "parallel versions",
+      "deprecation timeline"
+    ],
+    "examples": {
+      "url_version": "/api/v2/users",
+      "header_version": "Accept-Version: v2",
+      "sunset_header": "Sunset: Sat, 31 Dec 2024"
+    },
+    "tools": [
+      "openapi-diff",
+      "optic",
+      "api-linter"
+    ],
+    "antipatterns": [
+      "breaking changes without version bump",
+      "indefinite version support",
+      "no deprecation warnings",
+      "version in query params",
+      "too many active versions"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "W171RESTAPI",
+    "W172GRAPHQL",
+    "D06SEMVER"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

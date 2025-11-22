@@ -1,0 +1,58 @@
+{
+  "door_code": "W171RESTAPI",
+  "semantic_path": "workflows/api/rest",
+  "title": "REST API Design Patterns",
+  "aliases": [
+    "rest api",
+    "restful",
+    "api design",
+    "http api"
+  ],
+  "summary": "RESTful API design principles including resource modeling, HTTP semantics, versioning strategies, and HATEOAS. Covers practical implementation patterns.",
+  "context_bundle": {
+    "concepts": [
+      "resources",
+      "HTTP verbs",
+      "status codes",
+      "content negotiation",
+      "HATEOAS",
+      "idempotency",
+      "ETags"
+    ],
+    "patterns": [
+      "resource nesting",
+      "bulk operations",
+      "partial updates (PATCH)",
+      "filtering/sorting/pagination",
+      "API versioning",
+      "rate limiting responses"
+    ],
+    "examples": {
+      "resource_design": "noun-based URLs",
+      "bulk_endpoint": "batch operations",
+      "pagination_impl": "cursor vs offset"
+    },
+    "tools": [
+      "openapi",
+      "swagger",
+      "postman",
+      "insomnia",
+      "httpie"
+    ],
+    "antipatterns": [
+      "verbs in URLs",
+      "ignoring HTTP semantics",
+      "breaking changes without versioning",
+      "no pagination",
+      "exposing internal IDs"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "W172GRAPHQL",
+    "W173GRPC",
+    "S10CORS"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

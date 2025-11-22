@@ -1,0 +1,59 @@
+{
+  "door_code": "S55WAF_RULES",
+  "semantic_path": "security/waf/rules",
+  "title": "WAF Rule Configuration",
+  "aliases": [
+    "waf rules",
+    "web application firewall",
+    "waf config",
+    "modsecurity"
+  ],
+  "summary": "Web Application Firewall rule configuration including OWASP Core Rule Set, custom rules, and false positive management. Covers cloud and self-hosted WAFs.",
+  "context_bundle": {
+    "concepts": [
+      "OWASP CRS",
+      "custom rules",
+      "anomaly scoring",
+      "false positives",
+      "virtual patching",
+      "rate limiting",
+      "geo-blocking"
+    ],
+    "patterns": [
+      "detection mode first",
+      "gradual enforcement",
+      "rule exclusions",
+      "logging before blocking",
+      "virtual patching for CVEs"
+    ],
+    "examples": {
+      "crs_setup": "OWASP Core Rule Set",
+      "custom_rule": "specific attack pattern",
+      "exclusion": "false positive handling"
+    },
+    "tools": [
+      "modsecurity",
+      "aws-waf",
+      "cloudflare-waf",
+      "akamai-kona",
+      "azure-waf"
+    ],
+    "antipatterns": [
+      "blocking mode without testing",
+      "ignoring false positives",
+      "outdated rules",
+      "no logging",
+      "overly broad exclusions"
+    ]
+  },
+  "prerequisites": [
+    "S44WAF"
+  ],
+  "related_doors": [
+    "S44WAF",
+    "S54API_GATEWAY_SEC",
+    "S02XSS"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,56 @@
+{
+  "door_code": "W176APIPAGINATION",
+  "semantic_path": "workflows/api/pagination",
+  "title": "API Pagination Patterns",
+  "aliases": [
+    "pagination",
+    "cursor pagination",
+    "offset pagination",
+    "api paging"
+  ],
+  "summary": "Pagination strategies for APIs including offset-based, cursor-based, and keyset pagination. Covers performance implications and client experience.",
+  "context_bundle": {
+    "concepts": [
+      "offset pagination",
+      "cursor pagination",
+      "keyset pagination",
+      "page tokens",
+      "total counts",
+      "infinite scroll"
+    ],
+    "patterns": [
+      "opaque cursors",
+      "stable sort ordering",
+      "seek method",
+      "bidirectional cursors",
+      "page size limits",
+      "link headers"
+    ],
+    "examples": {
+      "cursor_impl": "base64 encoded cursor",
+      "keyset_query": "WHERE id > :last_id",
+      "relay_connection": "edges and pageInfo"
+    },
+    "tools": [
+      "graphql-relay",
+      "django-rest-framework"
+    ],
+    "antipatterns": [
+      "OFFSET for large datasets",
+      "mutable sort during pagination",
+      "no max page size",
+      "exposing internal cursors",
+      "COUNT(*) on every request"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "W171RESTAPI",
+    "W172GRAPHQL",
+    "E04DATABASE"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

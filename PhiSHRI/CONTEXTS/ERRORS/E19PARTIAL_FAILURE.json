@@ -1,0 +1,56 @@
+{
+  "door_code": "E19PARTIAL_FAILURE",
+  "semantic_path": "errors/distributed/partial",
+  "title": "Partial Failure Handling",
+  "aliases": [
+    "partial failure",
+    "partial success",
+    "mixed results",
+    "incomplete operations"
+  ],
+  "summary": "Handling partial failures in distributed operations where some components succeed and others fail. Covers compensation and consistency strategies.",
+  "context_bundle": {
+    "concepts": [
+      "partial success",
+      "all-or-nothing",
+      "best effort",
+      "compensation",
+      "eventual consistency",
+      "idempotency"
+    ],
+    "patterns": [
+      "saga pattern",
+      "compensating transactions",
+      "two-phase commit",
+      "idempotent operations",
+      "checkpoint recovery"
+    ],
+    "examples": {
+      "saga_compensation": "undo successful steps",
+      "partial_response": "report individual statuses",
+      "checkpoint": "resume from last good state"
+    },
+    "tools": [
+      "temporal",
+      "cadence",
+      "saga orchestrators"
+    ],
+    "antipatterns": [
+      "ignoring partial failures",
+      "no compensation logic",
+      "assuming all-or-nothing",
+      "no status tracking",
+      "silent failures"
+    ]
+  },
+  "prerequisites": [
+    "W132SAGA"
+  ],
+  "related_doors": [
+    "W132SAGA",
+    "W134DISTRIBUTED_TX",
+    "W133IDEMPOTENCY"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

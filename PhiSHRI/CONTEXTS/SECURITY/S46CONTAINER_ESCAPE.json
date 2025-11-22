@@ -1,0 +1,60 @@
+{
+  "door_code": "S46CONTAINER_ESCAPE",
+  "semantic_path": "security/container/escape",
+  "title": "Container Escape Prevention",
+  "aliases": [
+    "container escape",
+    "container breakout",
+    "docker escape",
+    "container security"
+  ],
+  "summary": "Preventing container escape attacks through proper isolation, capability dropping, and runtime security. Covers kernel exploits and misconfigurations.",
+  "context_bundle": {
+    "concepts": [
+      "container isolation",
+      "kernel namespaces",
+      "capabilities",
+      "seccomp",
+      "AppArmor",
+      "SELinux",
+      "privileged mode"
+    ],
+    "patterns": [
+      "drop all capabilities",
+      "no-new-privileges",
+      "read-only root filesystem",
+      "non-root user",
+      "seccomp profiles",
+      "minimal base images"
+    ],
+    "examples": {
+      "seccomp_profile": "syscall filtering",
+      "capability_drop": "--cap-drop=ALL",
+      "user_namespace": "rootless containers"
+    },
+    "tools": [
+      "falco",
+      "trivy",
+      "sysdig",
+      "docker-bench-security",
+      "gvisor"
+    ],
+    "antipatterns": [
+      "privileged containers",
+      "host PID namespace",
+      "host network mode",
+      "writable /var/run/docker.sock",
+      "root user in container"
+    ]
+  },
+  "prerequisites": [
+    "T03DOCKER"
+  ],
+  "related_doors": [
+    "S47K8S_SECURITY",
+    "T03DOCKER",
+    "T04KUBERNETES"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

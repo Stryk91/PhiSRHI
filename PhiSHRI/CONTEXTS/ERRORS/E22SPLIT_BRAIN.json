@@ -1,0 +1,59 @@
+{
+  "door_code": "E22SPLIT_BRAIN",
+  "semantic_path": "errors/distributed/split-brain",
+  "title": "Split Brain Resolution",
+  "aliases": [
+    "split brain",
+    "network partition",
+    "cluster split",
+    "partition handling"
+  ],
+  "summary": "Detecting and resolving split-brain scenarios in distributed systems. Covers quorum, fencing, and partition handling strategies.",
+  "context_bundle": {
+    "concepts": [
+      "split brain",
+      "quorum",
+      "fencing",
+      "STONITH",
+      "partition tolerance",
+      "consensus",
+      "leader election"
+    ],
+    "patterns": [
+      "quorum-based decisions",
+      "fencing tokens",
+      "STONITH (shoot the other node)",
+      "partition detection",
+      "manual intervention"
+    ],
+    "examples": {
+      "quorum": "majority required",
+      "fencing": "token invalidation",
+      "stonith": "power fence node"
+    },
+    "tools": [
+      "pacemaker",
+      "corosync",
+      "etcd",
+      "zookeeper",
+      "consul"
+    ],
+    "antipatterns": [
+      "no quorum",
+      "both sides active",
+      "no fencing",
+      "auto-recovery without check",
+      "ignoring minority partition"
+    ]
+  },
+  "prerequisites": [
+    "R07DISTRIB"
+  ],
+  "related_doors": [
+    "W143LEADER_ELECTION",
+    "T28CONSUL",
+    "T29ETCD"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

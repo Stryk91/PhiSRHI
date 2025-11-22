@@ -1,0 +1,60 @@
+{
+  "door_code": "W167MODELSERVE",
+  "semantic_path": "workflows/mlops/serving",
+  "title": "Model Serving Patterns",
+  "aliases": [
+    "model serving",
+    "inference",
+    "model deployment",
+    "prediction service"
+  ],
+  "summary": "Production model serving strategies including batch inference, real-time prediction, and edge deployment. Covers scaling, latency optimization, and monitoring.",
+  "context_bundle": {
+    "concepts": [
+      "batch inference",
+      "real-time inference",
+      "model latency",
+      "throughput optimization",
+      "GPU serving",
+      "model compression",
+      "quantization"
+    ],
+    "patterns": [
+      "request batching",
+      "model caching",
+      "async inference",
+      "streaming predictions",
+      "ensemble serving",
+      "multi-model endpoints"
+    ],
+    "examples": {
+      "triton_server": "high-perf GPU inference",
+      "tensorflow_serving": "TF model serving",
+      "torchserve": "PyTorch serving"
+    },
+    "tools": [
+      "triton",
+      "tensorflow-serving",
+      "torchserve",
+      "seldon-core",
+      "kserve",
+      "ray-serve"
+    ],
+    "antipatterns": [
+      "no model warm-up",
+      "unbounded batch sizes",
+      "synchronous only",
+      "no prediction logging",
+      "cold start on every request"
+    ]
+  },
+  "prerequisites": [
+    "W166MLOPS"
+  ],
+  "related_doors": [
+    "W168FEATURESTORE",
+    "W95CACHING"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

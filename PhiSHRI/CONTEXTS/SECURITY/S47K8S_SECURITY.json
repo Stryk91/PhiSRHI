@@ -1,0 +1,58 @@
+{
+  "door_code": "S47K8S_SECURITY",
+  "semantic_path": "security/kubernetes/hardening",
+  "title": "Kubernetes Security Hardening",
+  "aliases": [
+    "kubernetes security",
+    "k8s hardening",
+    "cluster security",
+    "pod security"
+  ],
+  "summary": "Kubernetes cluster hardening including RBAC, network policies, pod security standards, and secrets management. Covers multi-tenancy isolation.",
+  "context_bundle": {
+    "concepts": [
+      "RBAC",
+      "network policies",
+      "pod security admission",
+      "service accounts",
+      "secrets encryption",
+      "audit logging"
+    ],
+    "patterns": [
+      "least privilege RBAC",
+      "namespace isolation",
+      "network segmentation",
+      "secret encryption at rest",
+      "pod security standards"
+    ],
+    "examples": {
+      "rbac_role": "minimal permissions",
+      "network_policy": "deny by default",
+      "psa_enforce": "restricted profile"
+    },
+    "tools": [
+      "kube-bench",
+      "kubescape",
+      "polaris",
+      "opa-gatekeeper",
+      "kyverno"
+    ],
+    "antipatterns": [
+      "cluster-admin everywhere",
+      "no network policies",
+      "secrets in configmaps",
+      "default service account",
+      "no pod security"
+    ]
+  },
+  "prerequisites": [
+    "T04KUBERNETES"
+  ],
+  "related_doors": [
+    "S46CONTAINER_ESCAPE",
+    "S48POD_SECURITY",
+    "T04KUBERNETES"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

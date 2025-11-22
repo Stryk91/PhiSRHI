@@ -1,0 +1,58 @@
+{
+  "door_code": "W174WEBHOOK",
+  "semantic_path": "workflows/api/webhooks",
+  "title": "Webhook Design & Reliability",
+  "aliases": [
+    "webhooks",
+    "callback",
+    "push notification",
+    "event callback"
+  ],
+  "summary": "Reliable webhook implementation including delivery guarantees, retry strategies, signature verification, and subscriber management patterns.",
+  "context_bundle": {
+    "concepts": [
+      "push vs pull",
+      "delivery guarantees",
+      "idempotency keys",
+      "signatures",
+      "replay attacks",
+      "fanout",
+      "dead letter queues"
+    ],
+    "patterns": [
+      "exponential backoff",
+      "circuit breaker for endpoints",
+      "signature verification (HMAC)",
+      "event deduplication",
+      "subscription management"
+    ],
+    "examples": {
+      "stripe_webhooks": "payment events",
+      "github_webhooks": "repo events",
+      "custom_webhook": "internal events"
+    },
+    "tools": [
+      "svix",
+      "hookdeck",
+      "ngrok",
+      "webhook.site"
+    ],
+    "antipatterns": [
+      "no signature verification",
+      "synchronous processing",
+      "no retry logic",
+      "no dead letter queue",
+      "unbounded fanout"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "W115MESSAGING",
+    "W133IDEMPOTENCY",
+    "S12CSRF"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

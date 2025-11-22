@@ -1,0 +1,60 @@
+{
+  "door_code": "S50CLOUD_IAM",
+  "semantic_path": "security/cloud/iam",
+  "title": "Cloud IAM Best Practices",
+  "aliases": [
+    "cloud iam",
+    "aws iam",
+    "gcp iam",
+    "azure ad",
+    "identity management"
+  ],
+  "summary": "Cloud IAM security patterns including least privilege, role assumption, service accounts, and cross-account access. Covers AWS, GCP, and Azure.",
+  "context_bundle": {
+    "concepts": [
+      "least privilege",
+      "role assumption",
+      "service accounts",
+      "identity federation",
+      "MFA",
+      "conditional access",
+      "permission boundaries"
+    ],
+    "patterns": [
+      "role-based access",
+      "just-in-time access",
+      "break-glass procedures",
+      "audit logging",
+      "SCPs/guardrails"
+    ],
+    "examples": {
+      "aws_assume_role": "cross-account access",
+      "gcp_workload_identity": "pod to GCP",
+      "azure_managed_identity": "passwordless auth"
+    },
+    "tools": [
+      "aws-iam-authenticator",
+      "gcloud",
+      "az-cli",
+      "cloudsplaining",
+      "iamlive"
+    ],
+    "antipatterns": [
+      "long-lived credentials",
+      "admin access default",
+      "no MFA",
+      "shared service accounts",
+      "overly permissive policies"
+    ]
+  },
+  "prerequisites": [
+    "S09RBAC"
+  ],
+  "related_doors": [
+    "S09RBAC",
+    "S51CLOUD_NETWORK",
+    "T05TERRAFORM"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

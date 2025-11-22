@@ -1,0 +1,58 @@
+{
+  "door_code": "S54API_GATEWAY_SEC",
+  "semantic_path": "security/api/gateway",
+  "title": "API Gateway Security",
+  "aliases": [
+    "api gateway security",
+    "api protection",
+    "gateway auth",
+    "api firewall"
+  ],
+  "summary": "API gateway security including authentication, rate limiting, request validation, and WAF integration. Covers OAuth flows and API key management.",
+  "context_bundle": {
+    "concepts": [
+      "authentication termination",
+      "rate limiting",
+      "request validation",
+      "WAF integration",
+      "API keys",
+      "OAuth token validation"
+    ],
+    "patterns": [
+      "centralized auth",
+      "schema validation",
+      "payload inspection",
+      "bot protection",
+      "DDoS mitigation"
+    ],
+    "examples": {
+      "jwt_validation": "gateway-level verification",
+      "rate_limit": "per-client quotas",
+      "waf_rules": "OWASP protection"
+    },
+    "tools": [
+      "kong",
+      "aws-api-gateway",
+      "apigee",
+      "cloudflare-api-shield",
+      "modsecurity"
+    ],
+    "antipatterns": [
+      "auth at service level only",
+      "no rate limiting",
+      "no request validation",
+      "exposing internal errors",
+      "no WAF"
+    ]
+  },
+  "prerequisites": [
+    "W181APIGATEWAY"
+  ],
+  "related_doors": [
+    "W181APIGATEWAY",
+    "S44WAF",
+    "S07OAUTH"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

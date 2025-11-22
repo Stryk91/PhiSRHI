@@ -1,0 +1,59 @@
+{
+  "door_code": "R34EIP",
+  "semantic_path": "architecture/integration/eip",
+  "title": "Enterprise Integration Patterns",
+  "aliases": [
+    "eip",
+    "integration patterns",
+    "messaging patterns",
+    "enterprise integration"
+  ],
+  "summary": "Core Enterprise Integration Patterns including message routing, transformation, and endpoint patterns for system integration.",
+  "context_bundle": {
+    "concepts": [
+      "message channel",
+      "message router",
+      "message translator",
+      "message endpoint",
+      "pipes and filters",
+      "content-based routing"
+    ],
+    "patterns": [
+      "aggregator",
+      "splitter",
+      "resequencer",
+      "scatter-gather",
+      "routing slip",
+      "process manager",
+      "wire tap"
+    ],
+    "examples": {
+      "content_router": "route by message type",
+      "aggregator": "combine related messages",
+      "splitter": "one to many"
+    },
+    "tools": [
+      "apache-camel",
+      "spring-integration",
+      "mulesoft",
+      "nifi"
+    ],
+    "antipatterns": [
+      "point-to-point spaghetti",
+      "no message correlation",
+      "synchronous everywhere",
+      "no dead letter handling",
+      "tight coupling"
+    ]
+  },
+  "prerequisites": [
+    "W115MESSAGING"
+  ],
+  "related_doors": [
+    "W115MESSAGING",
+    "R35ESB",
+    "W184ASYNCAPI"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

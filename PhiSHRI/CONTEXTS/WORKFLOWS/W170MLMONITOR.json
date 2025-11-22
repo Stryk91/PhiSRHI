@@ -1,0 +1,59 @@
+{
+  "door_code": "W170MLMONITOR",
+  "semantic_path": "workflows/mlops/monitoring",
+  "title": "ML Model Monitoring",
+  "aliases": [
+    "model monitoring",
+    "ml observability",
+    "model drift",
+    "prediction monitoring"
+  ],
+  "summary": "Production ML monitoring covering data drift detection, model performance degradation, prediction quality, and automated retraining triggers.",
+  "context_bundle": {
+    "concepts": [
+      "data drift",
+      "concept drift",
+      "feature drift",
+      "prediction drift",
+      "model staleness",
+      "ground truth collection"
+    ],
+    "patterns": [
+      "statistical drift detection",
+      "windowed metrics",
+      "shadow scoring",
+      "champion-challenger eval",
+      "automated retraining"
+    ],
+    "examples": {
+      "evidently_report": "drift dashboard",
+      "whylogs_profile": "data profiling",
+      "nannyml_monitoring": "performance estimation"
+    },
+    "tools": [
+      "evidently",
+      "whylogs",
+      "nannyml",
+      "arize",
+      "fiddler",
+      "superwise"
+    ],
+    "antipatterns": [
+      "no baseline metrics",
+      "delayed ground truth",
+      "alert fatigue",
+      "manual drift detection",
+      "no retraining pipeline"
+    ]
+  },
+  "prerequisites": [
+    "W166MLOPS",
+    "W167MODELSERVE"
+  ],
+  "related_doors": [
+    "W146SLI_SLO",
+    "W113LOGGING"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

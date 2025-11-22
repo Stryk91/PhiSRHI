@@ -1,0 +1,58 @@
+{
+  "door_code": "W173GRPC",
+  "semantic_path": "workflows/api/grpc",
+  "title": "gRPC Service Patterns",
+  "aliases": [
+    "grpc",
+    "protobuf",
+    "rpc",
+    "protocol buffers"
+  ],
+  "summary": "gRPC service design including protobuf schema evolution, streaming patterns, load balancing, and service mesh integration for high-performance APIs.",
+  "context_bundle": {
+    "concepts": [
+      "protocol buffers",
+      "unary calls",
+      "streaming",
+      "bidirectional streaming",
+      "service reflection",
+      "deadlines",
+      "metadata"
+    ],
+    "patterns": [
+      "proto versioning",
+      "backward compatibility",
+      "client-side load balancing",
+      "retry policies",
+      "health checking",
+      "graceful shutdown"
+    ],
+    "examples": {
+      "proto_design": "message evolution",
+      "streaming_service": "server/client/bidi",
+      "grpc_web": "browser clients"
+    },
+    "tools": [
+      "grpcurl",
+      "evans",
+      "buf",
+      "grpc-gateway",
+      "connect-rpc"
+    ],
+    "antipatterns": [
+      "breaking proto changes",
+      "no deadlines",
+      "ignoring backpressure",
+      "large messages",
+      "no service reflection"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "W171RESTAPI",
+    "W172GRAPHQL",
+    "T38ISTIO"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

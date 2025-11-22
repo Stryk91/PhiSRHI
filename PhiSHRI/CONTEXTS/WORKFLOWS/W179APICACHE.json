@@ -1,0 +1,59 @@
+{
+  "door_code": "W179APICACHE",
+  "semantic_path": "workflows/api/caching",
+  "title": "API Caching Strategies",
+  "aliases": [
+    "api caching",
+    "http caching",
+    "etag",
+    "cache control"
+  ],
+  "summary": "HTTP caching for APIs including Cache-Control headers, ETags, conditional requests, and CDN integration for optimal performance.",
+  "context_bundle": {
+    "concepts": [
+      "Cache-Control",
+      "ETags",
+      "Last-Modified",
+      "conditional requests",
+      "stale-while-revalidate",
+      "private vs public cache"
+    ],
+    "patterns": [
+      "304 Not Modified",
+      "cache invalidation",
+      "cache key design",
+      "vary headers",
+      "CDN edge caching",
+      "API gateway caching"
+    ],
+    "examples": {
+      "cache_headers": "Cache-Control: max-age=3600",
+      "etag_flow": "If-None-Match validation",
+      "cdn_config": "edge caching rules"
+    },
+    "tools": [
+      "varnish",
+      "fastly",
+      "cloudflare",
+      "nginx-cache"
+    ],
+    "antipatterns": [
+      "no caching headers",
+      "caching authenticated responses publicly",
+      "cache key collisions",
+      "no cache invalidation",
+      "ignoring Vary"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI",
+    "W95CACHING"
+  ],
+  "related_doors": [
+    "W95CACHING",
+    "R31CDN",
+    "W171RESTAPI"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

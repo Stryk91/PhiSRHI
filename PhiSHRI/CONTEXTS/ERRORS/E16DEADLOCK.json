@@ -1,0 +1,57 @@
+{
+  "door_code": "E16DEADLOCK",
+  "semantic_path": "errors/concurrency/deadlock",
+  "title": "Deadlock Detection & Resolution",
+  "aliases": [
+    "deadlock",
+    "resource deadlock",
+    "lock contention",
+    "circular wait"
+  ],
+  "summary": "Detecting and resolving deadlocks in concurrent systems. Covers lock ordering, timeout-based detection, and deadlock-free design patterns.",
+  "context_bundle": {
+    "concepts": [
+      "mutual exclusion",
+      "circular wait",
+      "hold and wait",
+      "no preemption",
+      "lock ordering",
+      "lock timeout"
+    ],
+    "patterns": [
+      "consistent lock ordering",
+      "try-lock with timeout",
+      "lock-free data structures",
+      "hierarchical locking",
+      "deadlock detection threads"
+    ],
+    "examples": {
+      "lock_ordering": "always acquire A before B",
+      "try_lock": "timeout and retry",
+      "lock_free": "CAS operations"
+    },
+    "tools": [
+      "thread dump analyzers",
+      "visualvm",
+      "async-profiler",
+      "deadlock detectors"
+    ],
+    "antipatterns": [
+      "nested locks without order",
+      "indefinite lock waits",
+      "lock in callbacks",
+      "holding locks during I/O",
+      "coarse-grained locks"
+    ]
+  },
+  "prerequisites": [
+    "E09RACE"
+  ],
+  "related_doors": [
+    "E09RACE",
+    "W142DISTRIBUTED_LOCK",
+    "E17LIVELOCK"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

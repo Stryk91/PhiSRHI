@@ -1,0 +1,61 @@
+{
+  "door_code": "W169LLMOPS",
+  "semantic_path": "workflows/mlops/llm",
+  "title": "LLM Operations & Fine-tuning",
+  "aliases": [
+    "llmops",
+    "llm fine-tuning",
+    "prompt engineering",
+    "llm deployment"
+  ],
+  "summary": "Operational patterns for large language models including fine-tuning workflows, prompt management, RAG pipelines, and cost optimization strategies.",
+  "context_bundle": {
+    "concepts": [
+      "fine-tuning",
+      "PEFT",
+      "LoRA",
+      "prompt templates",
+      "RAG",
+      "embedding management",
+      "token optimization",
+      "context windows"
+    ],
+    "patterns": [
+      "prompt versioning",
+      "A/B prompt testing",
+      "semantic caching",
+      "chunking strategies",
+      "hybrid search",
+      "reranking"
+    ],
+    "examples": {
+      "lora_finetune": "efficient fine-tuning",
+      "langchain_rag": "retrieval pipeline",
+      "prompt_registry": "prompt management"
+    },
+    "tools": [
+      "langchain",
+      "llamaindex",
+      "vllm",
+      "text-generation-inference",
+      "ollama",
+      "instructor"
+    ],
+    "antipatterns": [
+      "no prompt versioning",
+      "unbounded context",
+      "no cost monitoring",
+      "single embedding model",
+      "no evaluation metrics"
+    ]
+  },
+  "prerequisites": [
+    "W166MLOPS"
+  ],
+  "related_doors": [
+    "W167MODELSERVE",
+    "R31CDN"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

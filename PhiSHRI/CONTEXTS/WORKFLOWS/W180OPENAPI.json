@@ -1,0 +1,60 @@
+{
+  "door_code": "W180OPENAPI",
+  "semantic_path": "workflows/api/openapi",
+  "title": "OpenAPI Specification Workflow",
+  "aliases": [
+    "openapi",
+    "swagger",
+    "api spec",
+    "api documentation"
+  ],
+  "summary": "OpenAPI specification authoring, validation, and code generation workflows. Covers design-first vs code-first approaches and documentation hosting.",
+  "context_bundle": {
+    "concepts": [
+      "OpenAPI 3.x",
+      "schemas",
+      "paths",
+      "components",
+      "security schemes",
+      "examples",
+      "webhooks"
+    ],
+    "patterns": [
+      "design-first",
+      "code-first generation",
+      "schema reuse",
+      "spec validation",
+      "breaking change detection",
+      "mock servers"
+    ],
+    "examples": {
+      "spec_structure": "info, paths, components",
+      "schema_ref": "$ref: '#/components/schemas/User'",
+      "codegen": "openapi-generator"
+    },
+    "tools": [
+      "swagger-editor",
+      "stoplight",
+      "redoc",
+      "openapi-generator",
+      "prism"
+    ],
+    "antipatterns": [
+      "outdated specs",
+      "no examples",
+      "inline schemas everywhere",
+      "ignoring validation",
+      "no version control for specs"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "W171RESTAPI",
+    "W175APIVERSION",
+    "D01DOCS"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

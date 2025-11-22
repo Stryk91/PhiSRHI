@@ -1,0 +1,58 @@
+{
+  "door_code": "W168FEATURESTORE",
+  "semantic_path": "workflows/mlops/features",
+  "title": "Feature Store Management",
+  "aliases": [
+    "feature store",
+    "feature engineering",
+    "feature pipeline",
+    "ml features"
+  ],
+  "summary": "Centralized feature management for ML systems. Ensures consistency between training and serving, enables feature reuse, and maintains feature lineage.",
+  "context_bundle": {
+    "concepts": [
+      "online features",
+      "offline features",
+      "feature freshness",
+      "point-in-time correctness",
+      "feature lineage",
+      "feature discovery"
+    ],
+    "patterns": [
+      "streaming features",
+      "batch features",
+      "on-demand features",
+      "feature versioning",
+      "time-travel queries",
+      "feature groups"
+    ],
+    "examples": {
+      "feast_setup": "open source feature store",
+      "tecton_pipeline": "enterprise features",
+      "vertex_features": "GCP native"
+    },
+    "tools": [
+      "feast",
+      "tecton",
+      "hopsworks",
+      "vertex-ai-feature-store",
+      "sagemaker-feature-store"
+    ],
+    "antipatterns": [
+      "training-serving skew",
+      "duplicate feature logic",
+      "no feature versioning",
+      "stale features in prod",
+      "no feature documentation"
+    ]
+  },
+  "prerequisites": [
+    "W166MLOPS"
+  ],
+  "related_doors": [
+    "W167MODELSERVE",
+    "W156DATACATALOG"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

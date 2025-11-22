@@ -1,0 +1,57 @@
+{
+  "door_code": "E21POISON_PILL",
+  "semantic_path": "errors/messaging/poison",
+  "title": "Poison Message Handling",
+  "aliases": [
+    "poison pill",
+    "poison message",
+    "bad message",
+    "unprocessable message"
+  ],
+  "summary": "Handling poison messages that repeatedly fail processing in message queues. Covers dead letter queues, retry limits, and message inspection.",
+  "context_bundle": {
+    "concepts": [
+      "poison message",
+      "dead letter queue",
+      "retry count",
+      "message TTL",
+      "redelivery",
+      "message inspection"
+    ],
+    "patterns": [
+      "bounded retries",
+      "dead letter routing",
+      "manual inspection queue",
+      "poison message alerts",
+      "schema validation"
+    ],
+    "examples": {
+      "dlq_routing": "after N retries -> DLQ",
+      "retry_header": "x-retry-count tracking",
+      "inspection": "manual review process"
+    },
+    "tools": [
+      "rabbitmq-dlx",
+      "kafka-dlq",
+      "aws-sqs-dlq",
+      "azure-servicebus-dlq"
+    ],
+    "antipatterns": [
+      "infinite retries",
+      "no DLQ",
+      "silent drops",
+      "no alerting on DLQ",
+      "no inspection process"
+    ]
+  },
+  "prerequisites": [
+    "W115MESSAGING"
+  ],
+  "related_doors": [
+    "W115MESSAGING",
+    "W127DLQ",
+    "T20KAFKA"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

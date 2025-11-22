@@ -1,0 +1,57 @@
+{
+  "door_code": "S48POD_SECURITY",
+  "semantic_path": "security/kubernetes/pod",
+  "title": "Pod Security Standards",
+  "aliases": [
+    "pod security",
+    "pss",
+    "pod security policy",
+    "pod hardening"
+  ],
+  "summary": "Kubernetes Pod Security Standards implementation including privileged, baseline, and restricted profiles. Covers migration from PSP to PSA.",
+  "context_bundle": {
+    "concepts": [
+      "privileged profile",
+      "baseline profile",
+      "restricted profile",
+      "pod security admission",
+      "security context",
+      "runtime class"
+    ],
+    "patterns": [
+      "namespace-level enforcement",
+      "audit mode first",
+      "gradual restriction",
+      "exemptions",
+      "warn mode monitoring"
+    ],
+    "examples": {
+      "restricted_context": "runAsNonRoot, readOnlyRootFilesystem",
+      "psa_labels": "pod-security.kubernetes.io/enforce",
+      "exemption": "system namespaces"
+    },
+    "tools": [
+      "kubectl",
+      "kyverno",
+      "opa-gatekeeper",
+      "kubescape"
+    ],
+    "antipatterns": [
+      "privileged pods",
+      "no security context",
+      "host namespaces",
+      "writable filesystems",
+      "running as root"
+    ]
+  },
+  "prerequisites": [
+    "S47K8S_SECURITY"
+  ],
+  "related_doors": [
+    "S47K8S_SECURITY",
+    "S49NETWORK_POLICY",
+    "T04KUBERNETES"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

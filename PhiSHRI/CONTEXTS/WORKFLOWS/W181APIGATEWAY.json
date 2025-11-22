@@ -1,0 +1,60 @@
+{
+  "door_code": "W181APIGATEWAY",
+  "semantic_path": "workflows/api/gateway",
+  "title": "API Gateway Patterns",
+  "aliases": [
+    "api gateway",
+    "gateway",
+    "api management",
+    "api proxy"
+  ],
+  "summary": "API gateway implementation patterns including request routing, rate limiting, authentication, and transformation. Covers cloud and self-hosted options.",
+  "context_bundle": {
+    "concepts": [
+      "request routing",
+      "rate limiting",
+      "authentication",
+      "request transformation",
+      "response caching",
+      "circuit breaking"
+    ],
+    "patterns": [
+      "BFF pattern",
+      "aggregation",
+      "protocol translation",
+      "request/response modification",
+      "canary routing",
+      "traffic splitting"
+    ],
+    "examples": {
+      "kong_config": "plugins and routes",
+      "aws_apigw": "Lambda integration",
+      "envoy_filter": "request modification"
+    },
+    "tools": [
+      "kong",
+      "aws-api-gateway",
+      "apigee",
+      "tyk",
+      "envoy",
+      "traefik"
+    ],
+    "antipatterns": [
+      "gateway as business logic",
+      "no rate limits",
+      "single point of failure",
+      "over-aggregation",
+      "no monitoring"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "T40ENVOY",
+    "W137RATE_LIMIT",
+    "S44WAF"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

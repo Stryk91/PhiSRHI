@@ -1,0 +1,56 @@
+{
+  "door_code": "W183BFFPATTERN",
+  "semantic_path": "workflows/api/bff",
+  "title": "Backend for Frontend Pattern",
+  "aliases": [
+    "bff",
+    "backend for frontend",
+    "api aggregation",
+    "client-specific api"
+  ],
+  "summary": "BFF pattern for client-specific API layers. Covers mobile vs web backends, aggregation strategies, and avoiding BFF proliferation.",
+  "context_bundle": {
+    "concepts": [
+      "client-specific APIs",
+      "aggregation layer",
+      "API composition",
+      "mobile optimization",
+      "GraphQL as BFF"
+    ],
+    "patterns": [
+      "one BFF per client type",
+      "shared BFF with feature flags",
+      "GraphQL federation as BFF",
+      "API composition",
+      "response shaping"
+    ],
+    "examples": {
+      "mobile_bff": "optimized payloads",
+      "web_bff": "rich responses",
+      "shared_bff": "client detection"
+    },
+    "tools": [
+      "graphql",
+      "express",
+      "fastify",
+      "nestjs"
+    ],
+    "antipatterns": [
+      "BFF proliferation",
+      "business logic in BFF",
+      "BFF as only auth layer",
+      "no shared libraries",
+      "duplicated aggregation logic"
+    ]
+  },
+  "prerequisites": [
+    "W181APIGATEWAY"
+  ],
+  "related_doors": [
+    "W181APIGATEWAY",
+    "W172GRAPHQL",
+    "R04MICROSERV"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

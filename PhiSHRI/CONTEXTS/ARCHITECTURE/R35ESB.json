@@ -1,0 +1,58 @@
+{
+  "door_code": "R35ESB",
+  "semantic_path": "architecture/integration/esb",
+  "title": "ESB vs Modern Integration",
+  "aliases": [
+    "esb",
+    "enterprise service bus",
+    "integration hub",
+    "api-led connectivity"
+  ],
+  "summary": "Evolution from traditional ESB to modern integration patterns. Covers when ESB is appropriate vs API gateways, service mesh, and event-driven architectures.",
+  "context_bundle": {
+    "concepts": [
+      "ESB",
+      "API gateway",
+      "service mesh",
+      "event backbone",
+      "integration platform",
+      "iPaaS"
+    ],
+    "patterns": [
+      "hub and spoke",
+      "API-led connectivity",
+      "event-driven integration",
+      "choreography vs orchestration",
+      "hybrid integration"
+    ],
+    "examples": {
+      "traditional_esb": "centralized routing",
+      "api_gateway": "API management",
+      "event_backbone": "kafka-based integration"
+    },
+    "tools": [
+      "mulesoft",
+      "wso2",
+      "tibco",
+      "kong",
+      "apigee"
+    ],
+    "antipatterns": [
+      "ESB as business logic host",
+      "everything through ESB",
+      "monolithic ESB",
+      "no API strategy",
+      "vendor lock-in"
+    ]
+  },
+  "prerequisites": [
+    "R34EIP"
+  ],
+  "related_doors": [
+    "R34EIP",
+    "W181APIGATEWAY",
+    "W184ASYNCAPI"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

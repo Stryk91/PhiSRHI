@@ -1,0 +1,56 @@
+{
+  "door_code": "E17LIVELOCK",
+  "semantic_path": "errors/concurrency/livelock",
+  "title": "Livelock Detection & Resolution",
+  "aliases": [
+    "livelock",
+    "busy waiting",
+    "active lock",
+    "spinning threads"
+  ],
+  "summary": "Identifying and resolving livelocks where processes continuously change state without progress. Covers backoff strategies and detection patterns.",
+  "context_bundle": {
+    "concepts": [
+      "livelock vs deadlock",
+      "busy waiting",
+      "state oscillation",
+      "resource starvation",
+      "fairness",
+      "progress guarantees"
+    ],
+    "patterns": [
+      "randomized backoff",
+      "exponential backoff",
+      "bounded retries",
+      "arbitration",
+      "progress tracking"
+    ],
+    "examples": {
+      "random_backoff": "jitter in retry",
+      "bounded_retry": "max attempts then fail",
+      "arbitration": "coordinator decides"
+    },
+    "tools": [
+      "profilers",
+      "cpu analyzers",
+      "thread monitors"
+    ],
+    "antipatterns": [
+      "unbounded retries",
+      "no backoff",
+      "symmetric retry logic",
+      "no progress detection",
+      "spinning on same resource"
+    ]
+  },
+  "prerequisites": [
+    "E16DEADLOCK"
+  ],
+  "related_doors": [
+    "E16DEADLOCK",
+    "W141BACKOFF",
+    "E09RACE"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

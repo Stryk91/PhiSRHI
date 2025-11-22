@@ -1,0 +1,60 @@
+{
+  "door_code": "E14DISTRIBUTED_TRACE",
+  "semantic_path": "errors/distributed/tracing",
+  "title": "Distributed Tracing Errors",
+  "aliases": [
+    "distributed tracing",
+    "trace errors",
+    "span errors",
+    "trace debugging"
+  ],
+  "summary": "Debugging errors in distributed systems using tracing. Covers trace context propagation, span analysis, and root cause identification across services.",
+  "context_bundle": {
+    "concepts": [
+      "trace context",
+      "spans",
+      "trace ID",
+      "parent span",
+      "sampling",
+      "baggage",
+      "trace correlation"
+    ],
+    "patterns": [
+      "W3C trace context",
+      "span attributes for errors",
+      "error span marking",
+      "trace-based testing",
+      "tail-based sampling"
+    ],
+    "examples": {
+      "trace_propagation": "W3C traceparent header",
+      "error_span": "span.setStatus(ERROR)",
+      "correlation": "trace to logs"
+    },
+    "tools": [
+      "jaeger",
+      "zipkin",
+      "otel-collector",
+      "tempo",
+      "honeycomb"
+    ],
+    "antipatterns": [
+      "broken trace context",
+      "no error status on spans",
+      "head-only sampling",
+      "no trace-log correlation",
+      "missing span attributes"
+    ]
+  },
+  "prerequisites": [
+    "W113LOGGING",
+    "T41JAEGER"
+  ],
+  "related_doors": [
+    "T41JAEGER",
+    "T43OTEL",
+    "W114TRACING"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

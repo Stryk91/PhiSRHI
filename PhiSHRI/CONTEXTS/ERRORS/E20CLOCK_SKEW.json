@@ -1,0 +1,58 @@
+{
+  "door_code": "E20CLOCK_SKEW",
+  "semantic_path": "errors/distributed/clock",
+  "title": "Clock Skew & Time Issues",
+  "aliases": [
+    "clock skew",
+    "time drift",
+    "distributed time",
+    "timestamp issues"
+  ],
+  "summary": "Handling clock skew and time synchronization issues in distributed systems. Covers logical clocks, NTP, and time-based ordering problems.",
+  "context_bundle": {
+    "concepts": [
+      "clock skew",
+      "NTP",
+      "logical clocks",
+      "vector clocks",
+      "Lamport timestamps",
+      "hybrid logical clocks",
+      "leap seconds"
+    ],
+    "patterns": [
+      "NTP synchronization",
+      "logical ordering",
+      "bounded skew assumptions",
+      "TrueTime-like approaches",
+      "monotonic clocks"
+    ],
+    "examples": {
+      "logical_clock": "Lamport timestamps",
+      "vector_clock": "causal ordering",
+      "hlc": "hybrid logical clock"
+    },
+    "tools": [
+      "ntpd",
+      "chrony",
+      "ptpd",
+      "cockroachdb-hlc"
+    ],
+    "antipatterns": [
+      "assuming synchronized clocks",
+      "wall clock for ordering",
+      "ignoring leap seconds",
+      "no clock monitoring",
+      "tight time bounds"
+    ]
+  },
+  "prerequisites": [
+    "R07DISTRIB"
+  ],
+  "related_doors": [
+    "W143LEADER_ELECTION",
+    "W144EVENTUAL_CONSISTENCY",
+    "R07DISTRIB"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

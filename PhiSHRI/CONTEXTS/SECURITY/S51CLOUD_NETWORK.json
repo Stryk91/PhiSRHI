@@ -1,0 +1,59 @@
+{
+  "door_code": "S51CLOUD_NETWORK",
+  "semantic_path": "security/cloud/network",
+  "title": "Cloud Network Security",
+  "aliases": [
+    "cloud network",
+    "vpc security",
+    "security groups",
+    "cloud firewall"
+  ],
+  "summary": "Cloud network security including VPC design, security groups, NACLs, and private connectivity. Covers multi-region and hybrid architectures.",
+  "context_bundle": {
+    "concepts": [
+      "VPC",
+      "subnets",
+      "security groups",
+      "NACLs",
+      "private endpoints",
+      "VPN",
+      "Direct Connect/ExpressRoute"
+    ],
+    "patterns": [
+      "public/private subnet split",
+      "bastion hosts",
+      "VPC peering",
+      "transit gateway",
+      "private link",
+      "egress filtering"
+    ],
+    "examples": {
+      "security_group": "allow specific ports",
+      "private_endpoint": "no internet traversal",
+      "nacl": "subnet-level filtering"
+    },
+    "tools": [
+      "terraform",
+      "cloudformation",
+      "vpc-flow-logs",
+      "cloud-custodian"
+    ],
+    "antipatterns": [
+      "0.0.0.0/0 ingress",
+      "public databases",
+      "no VPC flow logs",
+      "single availability zone",
+      "no egress filtering"
+    ]
+  },
+  "prerequisites": [
+    "S50CLOUD_IAM"
+  ],
+  "related_doors": [
+    "S50CLOUD_IAM",
+    "T05TERRAFORM",
+    "R25MULTICLOUD"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

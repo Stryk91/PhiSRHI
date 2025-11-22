@@ -1,0 +1,58 @@
+{
+  "door_code": "W185RATELIMIT",
+  "semantic_path": "workflows/api/ratelimit",
+  "title": "API Rate Limiting Implementation",
+  "aliases": [
+    "rate limiting",
+    "throttling",
+    "api quotas",
+    "request limiting"
+  ],
+  "summary": "Rate limiting implementation strategies including token bucket, sliding window, and distributed rate limiting. Covers client communication and fair usage.",
+  "context_bundle": {
+    "concepts": [
+      "token bucket",
+      "sliding window",
+      "fixed window",
+      "leaky bucket",
+      "distributed rate limiting",
+      "quota management"
+    ],
+    "patterns": [
+      "per-user limits",
+      "tiered rate limits",
+      "burst allowance",
+      "rate limit headers",
+      "graceful degradation",
+      "priority queuing"
+    ],
+    "examples": {
+      "redis_ratelimit": "distributed counter",
+      "headers": "X-RateLimit-Limit/Remaining/Reset",
+      "quota_tiers": "free/pro/enterprise"
+    },
+    "tools": [
+      "redis",
+      "envoy-ratelimit",
+      "kong-rate-limiting",
+      "nginx-limit-req"
+    ],
+    "antipatterns": [
+      "no rate limit headers",
+      "single global limit",
+      "no burst allowance",
+      "blocking without feedback",
+      "in-memory only limits"
+    ]
+  },
+  "prerequisites": [
+    "W171RESTAPI"
+  ],
+  "related_doors": [
+    "W137RATE_LIMIT",
+    "W181APIGATEWAY",
+    "T21REDIS"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}

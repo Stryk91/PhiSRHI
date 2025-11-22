@@ -1,0 +1,61 @@
+{
+  "door_code": "W166MLOPS",
+  "semantic_path": "workflows/mlops/pipeline",
+  "title": "ML Pipeline Orchestration",
+  "aliases": [
+    "mlops",
+    "ml pipeline",
+    "model training pipeline",
+    "machine learning ops"
+  ],
+  "summary": "End-to-end ML pipeline orchestration from data ingestion through model deployment. Covers feature engineering, training, validation, and production serving.",
+  "context_bundle": {
+    "concepts": [
+      "feature stores",
+      "model registry",
+      "experiment tracking",
+      "hyperparameter tuning",
+      "model versioning",
+      "A/B testing",
+      "shadow deployment"
+    ],
+    "patterns": [
+      "train-validate-deploy",
+      "feature pipeline",
+      "model retraining triggers",
+      "canary rollout",
+      "champion-challenger",
+      "online-offline feature sync"
+    ],
+    "examples": {
+      "kubeflow_pipeline": "DAG-based ML workflow",
+      "mlflow_tracking": "experiment logging",
+      "feast_features": "feature store integration"
+    },
+    "tools": [
+      "kubeflow",
+      "mlflow",
+      "feast",
+      "seldon",
+      "bentoml",
+      "ray"
+    ],
+    "antipatterns": [
+      "training-serving skew",
+      "no model versioning",
+      "manual feature engineering",
+      "no experiment tracking",
+      "monolithic ML code"
+    ]
+  },
+  "prerequisites": [
+    "W119AIRFLOW"
+  ],
+  "related_doors": [
+    "W167MODELSERVE",
+    "W168FEATURESTORE",
+    "T19AIRFLOW"
+  ],
+  "created": "2025-11-22T01:40:49Z",
+  "version": "1.0.0"
+}
