@@ -3,7 +3,7 @@
 
 use serde::{Deserialize, Serialize};
 use std::process::Stdio;
-use tauri::Manager;
+use tauri::Emitter;
 use tokio::io::{AsyncBufReadExt, BufReader};
 use tokio::process::Command;
 
