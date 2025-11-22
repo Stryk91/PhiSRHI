@@ -36,7 +36,7 @@ $ProgressPreference = "SilentlyContinue"
 
 # Configuration
 $script:Config = @{
-    Version = "1.1.0"
+    Version = "1.2.0"
     PhiSHRIRoot = Join-Path $env:USERPROFILE ".phishri"
     GitHubRepo = "Stryk91/PhiSHRI"
     MCPRepo = "Stryk91/PhiSHRI_MCP"
@@ -57,12 +57,46 @@ $script:Paths = @{
     AgentsExample = Join-Path $script:Config.PhiSHRIRoot "agents.example.json"
 }
 
-# Claude Desktop config locations to check
+# Claude Desktop config locations to check (for current user)
 $script:ClaudeConfigLocations = @(
     @{ Name = "Roaming"; Path = Join-Path $env:APPDATA "Claude\claude_desktop_config.json" },
     @{ Name = "Local"; Path = Join-Path $env:LOCALAPPDATA "Claude\claude_desktop_config.json" },
     @{ Name = "Extensions"; Path = Join-Path $env:LOCALAPPDATA "Claude\extensions\config.json" }
 )
+
+# Function to get all user profiles that might have Claude Desktop
+function Get-AllUserClaudeConfigs {
+    $configs = @()
+    $usersDir = "C:\Users"
+
+    if (Test-Path $usersDir) {
+        $userFolders = Get-ChildItem $usersDir -Directory | Where-Object {
+            $_.Name -notin @("Public", "Default", "Default User", "All Users")
+        }
+
+        foreach ($userFolder in $userFolders) {
+            $roamingPath = Join-Path $userFolder.FullName "AppData\Roaming\Claude\claude_desktop_config.json"
+            $roamingDir = Split-Path $roamingPath -Parent
+            $localPath = Join-Path $userFolder.FullName "AppData\Local\Claude\claude_desktop_config.json"
+            $localDir = Split-Path $localPath -Parent
+
+            # Check if Claude folder exists (indicates Claude Desktop installed for this user)
+            if ((Test-Path $roamingDir) -or (Test-Path $localDir)) {
+                $configs += @{
+                    User = $userFolder.Name
+                    RoamingPath = $roamingPath
+                    RoamingDir = $roamingDir
+                    LocalPath = $localPath
+                    LocalDir = $localDir
+                    HasRoaming = Test-Path $roamingDir
+                    HasLocal = Test-Path $localDir
+                }
+            }
+        }
+    }
+
+    return $configs
+}
 
 function Write-Step {
     param([string]$Message, [string]$Status = "INFO")
@@ -127,6 +161,41 @@ function Test-Prerequisites {
 function Find-ClaudeConfig {
     Write-Step "Detecting Claude Desktop configuration..."
 
+    # First check all user profiles
+    $allUserConfigs = Get-AllUserClaudeConfigs
+
+    if ($allUserConfigs.Count -gt 1) {
+        # Multiple users have Claude - ask which one to configure
+        Write-Host ""
+        Write-Host "Multiple user profiles found with Claude Desktop:" -ForegroundColor Yellow
+        Write-Host ""
+
+        for ($i = 0; $i -lt $allUserConfigs.Count; $i++) {
+            $cfg = $allUserConfigs[$i]
+            $marker = if ($cfg.User -eq $env:USERNAME) { " (current)" } else { "" }
+            Write-Host "  [$($i + 1)] $($cfg.User)$marker" -ForegroundColor White
+        }
+        Write-Host ""
+
+        $choice = Read-Host "Select user profile [1-$($allUserConfigs.Count)]"
+        $idx = [int]$choice - 1
+
+        if ($idx -ge 0 -and $idx -lt $allUserConfigs.Count) {
+            $selected = $allUserConfigs[$idx]
+            $configPath = $selected.RoamingPath
+            Write-Step "  Selected: $($selected.User) ($configPath)" "OK"
+            return @{ Name = "Roaming ($($selected.User))"; Path = $configPath }
+        }
+    }
+    elseif ($allUserConfigs.Count -eq 1) {
+        # Single user found
+        $selected = $allUserConfigs[0]
+        $configPath = $selected.RoamingPath
+        Write-Step "  Found: $($selected.User) ($configPath)" "OK"
+        return @{ Name = "Roaming ($($selected.User))"; Path = $configPath }
+    }
+
+    # Fallback: check current user's standard locations
     foreach ($loc in $script:ClaudeConfigLocations) {
         $configDir = Split-Path $loc.Path -Parent
         if (Test-Path $configDir) {
@@ -135,8 +204,9 @@ function Find-ClaudeConfig {
         }
     }
 
-    Write-Step "  Claude Desktop not found in standard locations" "WARN"
-    return $null
+    # Last resort: offer to create for current user
+    Write-Step "  Claude Desktop not found - will create config for current user" "WARN"
+    return @{ Name = "Roaming (new)"; Path = (Join-Path $env:APPDATA "Claude\claude_desktop_config.json") }
 }
 
 function Test-McpbAvailable {
@@ -333,42 +403,71 @@ function Install-ClaudeConfigAuto {
     }
 
     # Load existing config or create new
-    $config = @{}
+    $existingConfig = $null
     if (Test-Path $configPath) {
         try {
             $configContent = Get-Content $configPath -Raw -ErrorAction Stop
             if ($configContent -and $configContent.Trim()) {
-                $config = $configContent | ConvertFrom-Json -AsHashtable
+                $existingConfig = $configContent | ConvertFrom-Json
                 Write-Step "  Loaded existing config (merging)" "INFO"
             }
         }
         catch {
             Write-Step "  Could not parse existing config, creating backup" "WARN"
             Copy-Item $configPath "$configPath.backup.$(Get-Date -Format 'yyyyMMddHHmmss')" -Force
-            $config = @{}
         }
     }
 
-    # Ensure mcpServers exists (preserve existing servers!)
-    if (!$config.ContainsKey("mcpServers")) {
-        $config["mcpServers"] = @{}
-    }
+    # Convert paths to forward slashes for JSON (cleaner, always works)
+    $binaryPath = $script:Paths.Binary -replace '\\', '/'
+    $knowledgePath = $script:Paths.Knowledge -replace '\\', '/'
+    $rootPath = $script:Paths.Root -replace '\\', '/'
 
-    # Only add/update PhiSHRI entry
-    $config["mcpServers"]["phishri"] = @{
-        command = $script:Paths.Binary
+    # Build PhiSHRI MCP config
+    $phishriConfig = [ordered]@{
+        command = $binaryPath
         args = @()
-        env = @{
-            PHISHRI_PATH = $script:Paths.Knowledge
-            PHISHRI_SESSION_ROOT = $script:Paths.Root
+        env = [ordered]@{
+            PHISHRI_PATH = $knowledgePath
+            PHISHRI_SESSION_ROOT = $rootPath
         }
     }
 
-    # Write config
-    $config | ConvertTo-Json -Depth 10 | Set-Content $configPath -Encoding UTF8
+    # Build final config (preserve existing or create new)
+    if ($existingConfig) {
+        # Ensure mcpServers exists
+        if (-not $existingConfig.mcpServers) {
+            $existingConfig | Add-Member -NotePropertyName "mcpServers" -NotePropertyValue ([ordered]@{})
+        }
+        # Add/update phishri entry
+        if ($existingConfig.mcpServers.phishri) {
+            $existingConfig.mcpServers.phishri = $phishriConfig
+        }
+        else {
+            $existingConfig.mcpServers | Add-Member -NotePropertyName "phishri" -NotePropertyValue $phishriConfig
+        }
+        $finalConfig = $existingConfig
+    }
+    else {
+        $finalConfig = [ordered]@{
+            mcpServers = [ordered]@{
+                phishri = $phishriConfig
+            }
+        }
+    }
 
-    Write-Step "Claude Desktop configured at $($ConfigLocation.Name)" "OK"
-    return $true
+    # Write config with explicit JSON formatting
+    try {
+        $jsonContent = $finalConfig | ConvertTo-Json -Depth 10
+        # Ensure proper UTF8 without BOM
+        [System.IO.File]::WriteAllText($configPath, $jsonContent, [System.Text.UTF8Encoding]::new($false))
+        Write-Step "Claude Desktop configured at $($ConfigLocation.Name)" "OK"
+        return $true
+    }
+    catch {
+        Write-Step "Failed to write config: $_" "ERROR"
+        return $false
+    }
 }
 
 function Install-ClaudeConfigMcpb {
@@ -618,15 +717,38 @@ function Uninstall-PhiSHRI {
         Write-Step "Removed $($script:Paths.Root)" "OK"
     }
 
-    # Remove from all Claude config locations
+    # Remove from current user's Claude config locations
     foreach ($loc in $script:ClaudeConfigLocations) {
         if (Test-Path $loc.Path) {
             try {
-                $config = Get-Content $loc.Path -Raw | ConvertFrom-Json -AsHashtable
-                if ($config.mcpServers -and $config.mcpServers.ContainsKey("phishri")) {
-                    $config.mcpServers.Remove("phishri")
-                    $config | ConvertTo-Json -Depth 10 | Set-Content $loc.Path -Encoding UTF8
+                $configContent = Get-Content $loc.Path -Raw
+                $config = $configContent | ConvertFrom-Json
+                if ($config.mcpServers -and $config.mcpServers.phishri) {
+                    $config.mcpServers.PSObject.Properties.Remove("phishri")
+                    $jsonContent = $config | ConvertTo-Json -Depth 10
+                    [System.IO.File]::WriteAllText($loc.Path, $jsonContent, [System.Text.UTF8Encoding]::new($false))
                     Write-Step "Removed from $($loc.Name) config" "OK"
+                }
+            }
+            catch { }
+        }
+    }
+
+    # Also check all user profiles
+    $allUserConfigs = Get-AllUserClaudeConfigs
+    foreach ($userCfg in $allUserConfigs) {
+        if ($userCfg.User -eq $env:USERNAME) { continue } # Already handled above
+
+        $configPath = $userCfg.RoamingPath
+        if (Test-Path $configPath) {
+            try {
+                $configContent = Get-Content $configPath -Raw
+                $config = $configContent | ConvertFrom-Json
+                if ($config.mcpServers -and $config.mcpServers.phishri) {
+                    $config.mcpServers.PSObject.Properties.Remove("phishri")
+                    $jsonContent = $config | ConvertTo-Json -Depth 10
+                    [System.IO.File]::WriteAllText($configPath, $jsonContent, [System.Text.UTF8Encoding]::new($false))
+                    Write-Step "Removed from $($userCfg.User)'s config" "OK"
                 }
             }
             catch { }
