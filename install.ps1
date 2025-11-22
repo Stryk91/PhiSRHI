@@ -42,6 +42,7 @@ $script:Config = @{
     GitHubRepo = "Stryk91/PhiSHRI"
     MCPRepo = "Stryk91/PhiSHRI_MCP"
     BinaryName = "phishri-mcp.exe"
+    BinaryDownloadName = "phishri-mcp-windows-x64.exe"
 }
 
 # Derived paths
@@ -188,19 +189,20 @@ function Install-MCPBinary {
     Write-Step "Downloading PhiSHRI MCP binary..."
 
     $release = Get-LatestRelease -Repo $script:Config.MCPRepo
+    $downloadName = $script:Config.BinaryDownloadName
 
     if ($release) {
-        $asset = $release.assets | Where-Object { $_.name -eq $script:Config.BinaryName }
+        $asset = $release.assets | Where-Object { $_.name -eq $downloadName }
         if ($asset) {
             $downloadUrl = $asset.browser_download_url
             Write-Step "  Found release: $($release.tag_name)"
         }
         else {
-            $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$($script:Config.BinaryName)"
+            $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
         }
     }
     else {
-        $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$($script:Config.BinaryName)"
+        $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
     }
 
     Write-Step "  Downloading from: $downloadUrl"
